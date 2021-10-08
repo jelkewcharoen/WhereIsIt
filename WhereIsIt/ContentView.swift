@@ -15,13 +15,26 @@ struct ContentView: View {
                            endPoint: .bottomTrailing)
                 .ignoresSafeArea(.all)
             VStack{
-                Text("Where\nIs\nIt?")
-                    .font(.system(size: 50, weight: .semibold, design: .rounded))
-                    .foregroundColor(Color("White Black"))
+                HStack{
+                    Spacer()
+                    Spacer()
+                    Text("Where\nIs\nIt?")
+                        .font(.system(size: 50, weight: .light, design: .rounded))
+                        .foregroundColor(Color("White Black"))
+                        .padding(.leading)
+                    Image("buzz")
+                        .resizable()
+                        .scaledToFit()
+                        .padding()
+                    
+                    Spacer()
+                }
+                Spacer()
             }
         }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

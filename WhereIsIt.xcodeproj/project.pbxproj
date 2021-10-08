@@ -14,6 +14,8 @@
 		26FA98F3270FFD0C00A70AD1 /* CustomizedSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA98F2270FFD0C00A70AD1 /* CustomizedSearchBar.swift */; };
 		26FA98F727100AD400A70AD1 /* MainSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA98F627100AD400A70AD1 /* MainSearchView.swift */; };
 		26FA98FA27100DD400A70AD1 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA98F927100DD400A70AD1 /* HeaderView.swift */; };
+		26FA98FC2710161100A70AD1 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA98FB2710161100A70AD1 /* LoginPage.swift */; };
+		26FA98FE27101C0600A70AD1 /* BackgroundGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA98FD27101C0600A70AD1 /* BackgroundGradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		26FA98F2270FFD0C00A70AD1 /* CustomizedSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedSearchBar.swift; sourceTree = "<group>"; };
 		26FA98F627100AD400A70AD1 /* MainSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchView.swift; sourceTree = "<group>"; };
 		26FA98F927100DD400A70AD1 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		26FA98FB2710161100A70AD1 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		26FA98FD27101C0600A70AD1 /* BackgroundGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 			children = (
 				26FA98E2270FD43E00A70AD1 /* WhereIsItApp.swift */,
 				26FA98E4270FD43E00A70AD1 /* HomePage.swift */,
+				26FA98FB2710161100A70AD1 /* LoginPage.swift */,
 				26FA98E6270FD43F00A70AD1 /* Assets.xcassets */,
 				26FA98EB270FD43F00A70AD1 /* Info.plist */,
 				26FA98E8270FD43F00A70AD1 /* Preview Content */,
@@ -82,6 +87,7 @@
 				26FA98F627100AD400A70AD1 /* MainSearchView.swift */,
 				26FA98F2270FFD0C00A70AD1 /* CustomizedSearchBar.swift */,
 				26FA98F927100DD400A70AD1 /* HeaderView.swift */,
+				26FA98FD27101C0600A70AD1 /* BackgroundGradientView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -158,7 +164,9 @@
 				26FA98FA27100DD400A70AD1 /* HeaderView.swift in Sources */,
 				26FA98E5270FD43E00A70AD1 /* HomePage.swift in Sources */,
 				26FA98E3270FD43E00A70AD1 /* WhereIsItApp.swift in Sources */,
+				26FA98FE27101C0600A70AD1 /* BackgroundGradientView.swift in Sources */,
 				26FA98F727100AD400A70AD1 /* MainSearchView.swift in Sources */,
+				26FA98FC2710161100A70AD1 /* LoginPage.swift in Sources */,
 				26FA98F3270FFD0C00A70AD1 /* CustomizedSearchBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

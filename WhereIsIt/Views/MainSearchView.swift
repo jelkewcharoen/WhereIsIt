@@ -21,7 +21,7 @@ struct MainSearchView: View {
                     HStack{
                         Text(name)
                             .padding()
-                        Spacer()
+                        Spacer()  // align left
                     }
                 }
             }

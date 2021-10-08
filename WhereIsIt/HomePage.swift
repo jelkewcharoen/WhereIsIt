@@ -12,21 +12,29 @@ struct HomePage: View {
     @State var text: String = ""
     
     var body: some View {
-        ZStack{
-            LinearGradient(gradient: Gradient(colors: [Color("Tech Gold"), Color("Tech Gold"), Color("Main Gradient 2")]),
-                           startPoint: .topLeading,
-                           endPoint: .bottomTrailing)
-                .ignoresSafeArea(.all)
-            VStack{
-                HStack{
-                    Spacer()
-                    Spacer()
-                    HeaderView()
+        NavigationView {
+            ZStack{
+                BackgroundGradientView()
+                VStack{
+                    HStack{
+                        HeaderView()
+                    }
+                    MainSearchView()
+                    NavigationLink(
+                        destination: LoginPage()) {
+                        Text("Add")
+                    }
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color("Navy Blue"))
+                    .cornerRadius(10)
                     Spacer()
                 }
-                MainSearchView()
-                Spacer()
             }
+            .padding(.top, 50)
+            .navigationBarHidden(true)
+            .navigationBarTitle(Text("Home"))
+            .edgesIgnoringSafeArea([.top, .bottom])
         }
     }
 }

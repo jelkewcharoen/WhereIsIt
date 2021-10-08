@@ -21,22 +21,10 @@ struct ContentView: View {
                 HStack{
                     Spacer()
                     Spacer()
-                    Text("Where\nIs\nIt?")
-                        .font(.system(size: 50, weight: .light, design: .rounded))
-                        .foregroundColor(Color("White Black"))
-                        .padding(.leading)
-                    Image("buzz")
-                        .resizable()
-                        .scaledToFit()
-                        .padding()
-                    
+                    HeaderView()
                     Spacer()
                 }
-                NavigationView {
-                    MainSearchView()
-                }
-                .frame(width: 300, height: 200, alignment: .center)
-                .cornerRadius(20)
+                MainSearchView()
                 Spacer()
             }
         }

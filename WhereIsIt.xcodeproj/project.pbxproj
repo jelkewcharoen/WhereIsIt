@@ -13,6 +13,7 @@
 		26FA98EA270FD43F00A70AD1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26FA98E9270FD43F00A70AD1 /* Preview Assets.xcassets */; };
 		26FA98F3270FFD0C00A70AD1 /* CustomizedSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA98F2270FFD0C00A70AD1 /* CustomizedSearchBar.swift */; };
 		26FA98F727100AD400A70AD1 /* MainSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA98F627100AD400A70AD1 /* MainSearchView.swift */; };
+		26FA98FA27100DD400A70AD1 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA98F927100DD400A70AD1 /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		26FA98EB270FD43F00A70AD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26FA98F2270FFD0C00A70AD1 /* CustomizedSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedSearchBar.swift; sourceTree = "<group>"; };
 		26FA98F627100AD400A70AD1 /* MainSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchView.swift; sourceTree = "<group>"; };
+		26FA98F927100DD400A70AD1 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				26FA98F627100AD400A70AD1 /* MainSearchView.swift */,
 				26FA98F2270FFD0C00A70AD1 /* CustomizedSearchBar.swift */,
+				26FA98F927100DD400A70AD1 /* HeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26FA98FA27100DD400A70AD1 /* HeaderView.swift in Sources */,
 				26FA98E5270FD43E00A70AD1 /* ContentView.swift in Sources */,
 				26FA98E3270FD43E00A70AD1 /* WhereIsItApp.swift in Sources */,
 				26FA98F727100AD400A70AD1 /* MainSearchView.swift in Sources */,

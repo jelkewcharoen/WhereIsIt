@@ -13,7 +13,7 @@ let entityNameList = ["bathroom", "microwave", "printer"];
 struct WhereIsItApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomePage()
         }
     }
 }

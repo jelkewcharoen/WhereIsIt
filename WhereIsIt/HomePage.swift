@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomePageView: View {
+struct HomePage: View {
     
     @State var text: String = ""
     
@@ -32,9 +32,9 @@ struct HomePageView: View {
 }
 
 
-struct HomePageView_Previews: PreviewProvider {
+struct HomePage_Previews: PreviewProvider {
     static var previews: some View {
-        HomePageView()
+        HomePage()
             .preferredColorScheme(.light)
             
     }

@@ -10,4 +10,4 @@ A CS 4261 project.
 Andrew Lukman - alukman3 - alukman3@gatech.edu\
 Jel Kewcharoen - pkewcharoen3 - pkewcharoen3@gatech.edu\
 Conner Bluck - cbluck3 - cbluck3@gatech.edu\
-Noah Teuscher - nteuscher3 - noahteuscher@gatech.edu\
+Noah Teuscher - nteuscher3 - noahteuscher@gatech.edu

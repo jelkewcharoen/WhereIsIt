@@ -1,4 +1,4 @@
-# WHERE IS IT?
+# WhereIsIt?
 
 An app dedicated to making finding everything easier. Current functionality is specific to GaTech, but could be expanded...
 

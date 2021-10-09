@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddPage: View {
     
-    @State private var itemName: String = ""
+    @State var itemName: String = ""
     
     var body: some View {
         NavigationView {
@@ -26,11 +26,13 @@ struct AddPage: View {
                         Spacer()
                     }
                     
-                    itemEntryField(itemName: $itemName)
+                    itemEntryField(name: $itemName)
                     
                     Spacer()
                     
-                    Button(action: addItem) {
+                    Button(action: {
+                        print("Item name: " + itemName)
+                    }) {
                         Text("Add Item")
                     }
                     
@@ -54,9 +56,6 @@ struct AddPage: View {
     }
 }
 
-func addItem() {
-    
-}
 
 struct AddPage_Previews: PreviewProvider {
     static var previews: some View {
@@ -67,10 +66,10 @@ struct AddPage_Previews: PreviewProvider {
 
 struct itemEntryField: View {
     
-    @Binding var itemName: String
+    @Binding var name: String
     
     var body: some View {
-        TextField("",text: $itemName)
+        TextField("",text: $name)
             .autocapitalization(.none)
             .border(Color(UIColor.separator))
             .padding([.leading, .trailing])

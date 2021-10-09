@@ -10,7 +10,6 @@ import SwiftUI
 struct AddPage: View {
     
     @State private var itemName: String = ""
-    @State private var isEditing = false
     
     var body: some View {
         NavigationView {
@@ -27,20 +26,22 @@ struct AddPage: View {
                         Spacer()
                     }
                     
-                    TextField(
-                        "",
-                         text: $itemName
-                    ) { isEditing in
-                        self.isEditing = isEditing
-                    } onCommit: {
-                        //validate(name: itemName)
-                    }
-                    .autocapitalization(.none)
-                    .border(Color(UIColor.separator))
-                    .padding([.leading, .trailing])
+                    itemEntryField(itemName: $itemName)
                     
                     Spacer()
-                    AddAndBackButtonsView()
+                    
+                    Button(action: addItem) {
+                        Text("Add Item")
+                    }
+                    
+//                    NavigationLink(
+//                        destination: LoginPage()) {
+//                        Text("Add")
+//                    }
+//                    .foregroundColor(.white)
+//                    .padding()
+//                    .background(Color("Navy Blue"))
+//                    .cornerRadius(10)
                     Spacer()
                 }
             }
@@ -53,8 +54,25 @@ struct AddPage: View {
     }
 }
 
+func addItem() {
+    
+}
+
 struct AddPage_Previews: PreviewProvider {
     static var previews: some View {
         AddPage()
+    }
+}
+
+
+struct itemEntryField: View {
+    
+    @Binding var itemName: String
+    
+    var body: some View {
+        TextField("",text: $itemName)
+            .autocapitalization(.none)
+            .border(Color(UIColor.separator))
+            .padding([.leading, .trailing])
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct AddPage: View {
     
     @State var itemName: String = ""
+    @State var locationName: String = ""
     
     var body: some View {
         NavigationView {
@@ -28,10 +29,23 @@ struct AddPage: View {
                     
                     itemEntryField(name: $itemName)
                     
+                    Spacer().frame(height: 50)
+                    
+                    HStack{
+                        Text("Location:")
+                            .font(.system(size: 20, weight: .light, design: .rounded))
+                            .foregroundColor(Color("White Black"))
+                            .padding([.top,.leading])
+                        Spacer()
+                    }
+                    
+                    locationEntryField(location: $locationName)
+                    
                     Spacer()
                     
                     Button(action: {
                         print("Item name: " + itemName)
+                        print("Location: " + locationName)
                     }) {
                         Text("Add Item")
                     }
@@ -70,6 +84,18 @@ struct itemEntryField: View {
     
     var body: some View {
         TextField("",text: $name)
+            .autocapitalization(.none)
+            .border(Color(UIColor.separator))
+            .padding([.leading, .trailing])
+    }
+}
+
+struct locationEntryField: View {
+    
+    @Binding var location: String
+    
+    var body: some View {
+        TextField("",text: $location)
             .autocapitalization(.none)
             .border(Color(UIColor.separator))
             .padding([.leading, .trailing])

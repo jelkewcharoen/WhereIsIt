@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddPage: View {
     
-    @State private var username: String = ""
+    @State private var itemName: String = ""
     @State private var isEditing = false
     
     var body: some View {
@@ -18,36 +18,29 @@ struct AddPage: View {
                 BackgroundGradientView()
                 VStack{
                     Spacer().frame(height: 50)
-                    HStack{
-                        HeaderView()
-                    }
+                    HeaderView()
                     HStack{
                         Text("Item:")
                             .font(.system(size: 20, weight: .light, design: .rounded))
                             .foregroundColor(Color("White Black"))
-                            .padding()
+                            .padding([.top,.leading])
                         Spacer()
                     }
                     
                     TextField(
-                        "User name (email address)",
-                         text: $username
+                        "",
+                         text: $itemName
                     ) { isEditing in
                         self.isEditing = isEditing
                     } onCommit: {
-                        //validate(name: username)
+                        //validate(name: itemName)
                     }
                     .autocapitalization(.none)
                     .border(Color(UIColor.separator))
+                    .padding([.leading, .trailing])
+                    
                     Spacer()
-                    NavigationLink(
-                        destination: LoginPage()) {
-                        Text("Add")
-                    }
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color("Navy Blue"))
-                    .cornerRadius(10)
+                    AddAndBackButtonsView()
                     Spacer()
                 }
             }
@@ -56,6 +49,7 @@ struct AddPage: View {
             .edgesIgnoringSafeArea([.top, .bottom])
         }
         .statusBar(hidden: true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 

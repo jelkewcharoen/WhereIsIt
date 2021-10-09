@@ -17,21 +17,16 @@ struct LoginPage: View {
                 BackgroundGradientView()
                 VStack{
                     Spacer().frame(height: 50)
-                    HStack{
-                        HeaderView()
-                    }
-                    Spacer().frame(height: 50)
-                    Text("Before Adding - Login REQUIRED\nLogin Page\nFuture Implementation")
-                    Spacer().frame(height: 50)
-                    NavigationLink(
-                        destination: AddPage()) {
-                        Text("Add")
-                    }
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color("Navy Blue"))
-                    .cornerRadius(10)
+                    HeaderView()
                     Spacer()
+                    Text("Before Adding - Login REQUIRED\nLogin Page\nFuture Implementation")
+                    
+                    Spacer()
+                    
+                    AddAndBackButtonsView()
+                    
+                    Spacer()
+                    
                 }
             }
             .navigationBarHidden(true)
@@ -39,6 +34,7 @@ struct LoginPage: View {
             .edgesIgnoringSafeArea([.top, .bottom])
         }
         .statusBar(hidden: true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 

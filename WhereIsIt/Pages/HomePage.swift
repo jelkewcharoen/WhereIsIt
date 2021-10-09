@@ -17,9 +17,7 @@ struct HomePage: View {
                 BackgroundGradientView()
                 VStack{
                     Spacer().frame(height: 50)
-                    HStack{
-                        HeaderView()
-                    }
+                    HeaderView()
                     MainSearchView()
                     NavigationLink(
                         destination: LoginPage()) {
@@ -37,6 +35,7 @@ struct HomePage: View {
             .edgesIgnoringSafeArea([.top, .bottom])
         }
         .statusBar(hidden: true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 

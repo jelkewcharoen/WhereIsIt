@@ -9,15 +9,17 @@ import SwiftUI
 
 struct HeaderView: View {
     var body: some View {
-        Text("Where\nIs\nIt?")
-            .font(.system(size: 40, weight: .light, design: .rounded))
-            .foregroundColor(Color("White Black"))
-            .padding(.leading, 30)
-        Image("buzz")
-            .resizable()
-            .scaledToFit()
-            .frame(width: 125, height:125, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            .padding()
+        HStack{
+            Text("Where\nIs\nIt?")
+                .font(.system(size: 40, weight: .light, design: .rounded))
+                .foregroundColor(Color("White Black"))
+                .padding(.leading, 30)
+            Image("buzz")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 125, height:125, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .padding()
+        }
     }
 }
 

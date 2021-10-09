@@ -2,26 +2,29 @@
 //  ContentView.swift
 //  WhereIsIt
 //
-//  Created by Green TRectangle()
+//  Created by Green T
 //
 
 import SwiftUI
 
-struct HomePage: View {
+struct LoginPage: View {
     
     @State var text: String = ""
     
     var body: some View {
         NavigationView {
-            ZStack{
+            ZStack {
                 BackgroundGradientView()
                 VStack{
+                    Spacer().frame(height: 50)
                     HStack{
                         HeaderView()
                     }
-                    MainSearchView()
+                    Spacer().frame(height: 50)
+                    Text("Before Adding - Login REQUIRED\nLogin Page\nFuture Implementation")
+                    Spacer().frame(height: 50)
                     NavigationLink(
-                        destination: LoginPage()) {
+                        destination: AddPage()) {
                         Text("Add")
                     }
                     .foregroundColor(.white)
@@ -31,19 +34,18 @@ struct HomePage: View {
                     Spacer()
                 }
             }
-            .padding(.top, 50)
             .navigationBarHidden(true)
             .navigationBarTitle(Text("Home"))
             .edgesIgnoringSafeArea([.top, .bottom])
         }
+        .statusBar(hidden: true)
     }
 }
 
 
-struct HomePage_Previews: PreviewProvider {
+struct LoginPage_Previews: PreviewProvider {
     static var previews: some View {
-        HomePage()
-            .preferredColorScheme(.light)
-            
+        LoginPage()
+            .preferredColorScheme(.none)
     }
 }

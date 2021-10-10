@@ -8,7 +8,7 @@
 import SwiftUI
 import UIKit
 
-let entityNameList = ["bathroom", "microwave", "printer"]; // temporary array to store entities in main search
+var entityNameList = ["bathroom", "microwave", "printer"]; // temporary array to store entities in main search
 
 @main
 struct WhereIsItApp: App {

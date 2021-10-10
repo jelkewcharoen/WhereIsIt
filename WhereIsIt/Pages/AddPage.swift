@@ -44,20 +44,12 @@ struct AddPage: View {
                     Spacer()
                     
                     Button(action: {
+                        entityNameList.append(itemName)
                         print("Item name: " + itemName)
                         print("Location: " + locationName)
                     }) {
                         Text("Add Item")
                     }
-                    
-//                    NavigationLink(
-//                        destination: LoginPage()) {
-//                        Text("Add")
-//                    }
-//                    .foregroundColor(.white)
-//                    .padding()
-//                    .background(Color("Navy Blue"))
-//                    .cornerRadius(10)
                     Spacer()
                 }
             }

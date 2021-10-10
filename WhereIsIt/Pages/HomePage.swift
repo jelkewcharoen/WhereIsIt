@@ -11,6 +11,7 @@ struct HomePage: View {
     
     @State var text: String = ""
     @State private var showingEntityPage = false
+    @State private var showingDeveloperPage = false
     
     var body: some View {
         
@@ -30,6 +31,15 @@ struct HomePage: View {
                     .background(Color("Navy Blue"))
                     .cornerRadius(10)
                     Spacer()
+                    Group{
+                        Text("Developer Button:")
+                        Button("Show item list") {
+                            self.showingDeveloperPage.toggle()
+                        }.sheet(isPresented: $showingDeveloperPage){
+                            DeveloperPage(isPresented: $showingDeveloperPage)
+                        }
+                    }
+                    Spacer()
                 }
             }
             .navigationBarHidden(true)
@@ -38,6 +48,21 @@ struct HomePage: View {
         }
         .statusBar(hidden: true)
         .navigationBarBackButtonHidden(true)
+    }
+}
+
+struct DeveloperPage: View {
+    @Binding var isPresented: Bool
+    
+    var body: some View{
+        Text(entityNameList.description)
+        Button("Close") {
+            self.isPresented = false;
+        }
+        .foregroundColor(.white)
+        .padding()
+        .background(Color("Navy Blue"))
+        .cornerRadius(10)
     }
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2688336027125D7E00B405CA /* ChosenEntityPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2688335F27125D7E00B405CA /* ChosenEntityPage.swift */; };
 		26FA98E3270FD43E00A70AD1 /* WhereIsItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA98E2270FD43E00A70AD1 /* WhereIsItApp.swift */; };
 		26FA98E5270FD43E00A70AD1 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA98E4270FD43E00A70AD1 /* HomePage.swift */; };
 		26FA98E7270FD43F00A70AD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26FA98E6270FD43F00A70AD1 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2688335F27125D7E00B405CA /* ChosenEntityPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenEntityPage.swift; sourceTree = "<group>"; };
 		26FA98DF270FD43E00A70AD1 /* WhereIsIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereIsIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26FA98E2270FD43E00A70AD1 /* WhereIsItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereIsItApp.swift; sourceTree = "<group>"; };
 		26FA98E4270FD43E00A70AD1 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				26FA98FB2710161100A70AD1 /* LoginPage.swift */,
 				26FA98E4270FD43E00A70AD1 /* HomePage.swift */,
 				26FA992D2711B79300A70AD1 /* AddPage.swift */,
+				2688335F27125D7E00B405CA /* ChosenEntityPage.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				26FA98FE27101C0600A70AD1 /* BackgroundGradientView.swift in Sources */,
 				26FA992E2711B79300A70AD1 /* AddPage.swift in Sources */,
 				26FA98F727100AD400A70AD1 /* MainSearchView.swift in Sources */,
+				2688336027125D7E00B405CA /* ChosenEntityPage.swift in Sources */,
 				26FA98FC2710161100A70AD1 /* LoginPage.swift in Sources */,
 				26FA98F3270FFD0C00A70AD1 /* CustomizedSearchBar.swift in Sources */,
 				26FA992A2711B4DD00A70AD1 /* AppDelegate.swift in Sources */,

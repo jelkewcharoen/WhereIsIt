@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ChosenEntityPage.swift
 //  WhereIsIt
 //
 //  Created by Green T
@@ -7,30 +7,24 @@
 
 import SwiftUI
 
-struct HomePage: View {
+struct ChosenEntityPage: View {
+    @Binding var isPresented: Bool
+    @Binding var selectedEntity: String
     
     @State var text: String = ""
-    @State private var showingEntityPage = false
     
     var body: some View {
-        
-        
-        
         NavigationView {
             ZStack {
                 BackgroundGradientView()
                 VStack{
                     Spacer().frame(height: 50)
                     HeaderView()
-                    MainSearchView()
-                    NavigationLink(
-                        destination: LoginPage()) {
-                        Text("Add")
+                    Text("CHOSEN ENTITY PAGE\nChosen: " + selectedEntity)
+                    Spacer().frame(height: 50)
+                    Button("Back") {
+                        self.isPresented = false;
                     }
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color("Navy Blue"))
-                    .cornerRadius(10)
                     Spacer()
                 }
             }
@@ -43,10 +37,9 @@ struct HomePage: View {
     }
 }
 
-
-struct HomePage_Previews: PreviewProvider {
-    static var previews: some View {
-        HomePage()
-            .preferredColorScheme(.none)
-    }
-}
+//struct ChosenEntityPage_Previews: PreviewProvider {
+//
+//    static var previews: some View {
+//        ChosenEntityPage()
+//    }
+//}

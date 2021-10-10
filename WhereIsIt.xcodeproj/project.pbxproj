@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2688336027125D7E00B405CA /* ChosenEntityPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2688335F27125D7E00B405CA /* ChosenEntityPage.swift */; };
+		268833622712EB8600B405CA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268833612712EB8600B405CA /* MapView.swift */; };
 		26FA98E3270FD43E00A70AD1 /* WhereIsItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA98E2270FD43E00A70AD1 /* WhereIsItApp.swift */; };
 		26FA98E5270FD43E00A70AD1 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA98E4270FD43E00A70AD1 /* HomePage.swift */; };
 		26FA98E7270FD43F00A70AD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26FA98E6270FD43F00A70AD1 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		2688335F27125D7E00B405CA /* ChosenEntityPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenEntityPage.swift; sourceTree = "<group>"; };
+		268833612712EB8600B405CA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		26FA98DF270FD43E00A70AD1 /* WhereIsIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereIsIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26FA98E2270FD43E00A70AD1 /* WhereIsItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereIsItApp.swift; sourceTree = "<group>"; };
 		26FA98E4270FD43E00A70AD1 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 		26FA98F827100D0B00A70AD1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				268833612712EB8600B405CA /* MapView.swift */,
 				26FA99342711C6F900A70AD1 /* AddAndBackButtonsView.swift */,
 				26FA98F627100AD400A70AD1 /* MainSearchView.swift */,
 				26FA98F2270FFD0C00A70AD1 /* CustomizedSearchBar.swift */,
@@ -196,6 +199,7 @@
 				26FA98E5270FD43E00A70AD1 /* HomePage.swift in Sources */,
 				26FA99322711C27D00A70AD1 /* ButtonFunction.swift in Sources */,
 				26FA98E3270FD43E00A70AD1 /* WhereIsItApp.swift in Sources */,
+				268833622712EB8600B405CA /* MapView.swift in Sources */,
 				26FA98FE27101C0600A70AD1 /* BackgroundGradientView.swift in Sources */,
 				26FA992E2711B79300A70AD1 /* AddPage.swift in Sources */,
 				26FA98F727100AD400A70AD1 /* MainSearchView.swift in Sources */,

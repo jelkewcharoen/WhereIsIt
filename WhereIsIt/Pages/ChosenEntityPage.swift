@@ -25,6 +25,8 @@ struct ChosenEntityPage: View {
                     Button("Back") {
                         self.isPresented = false;
                     }
+                    MapView()
+                        .frame(width: 350, height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     Spacer()
                 }
             }
@@ -37,9 +39,10 @@ struct ChosenEntityPage: View {
     }
 }
 
-//struct ChosenEntityPage_Previews: PreviewProvider {
-//
-//    static var previews: some View {
-//        ChosenEntityPage()
-//    }
-//}
+struct ChosenEntityPage_Previews: PreviewProvider {
+    @State static var previewIsPresented = false
+    @State static var previewSelectedEntity = "test"
+    static var previews: some View {
+        ChosenEntityPage(isPresented: $previewIsPresented, selectedEntity: $previewSelectedEntity)
+    }
+}

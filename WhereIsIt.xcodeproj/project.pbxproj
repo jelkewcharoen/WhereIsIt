@@ -19,9 +19,8 @@
 		26FA98FC2710161100A70AD1 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA98FB2710161100A70AD1 /* LoginPage.swift */; };
 		26FA98FE27101C0600A70AD1 /* BackgroundGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA98FD27101C0600A70AD1 /* BackgroundGradientView.swift */; };
 		26FA992A2711B4DD00A70AD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA99292711B4DD00A70AD1 /* AppDelegate.swift */; };
-		26FA992E2711B79300A70AD1 /* AddPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA992D2711B79300A70AD1 /* AddPage.swift */; };
+		26FA992E2711B79300A70AD1 /* AddItemPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA992D2711B79300A70AD1 /* AddItemPage.swift */; };
 		26FA99322711C27D00A70AD1 /* ButtonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA99312711C27D00A70AD1 /* ButtonFunction.swift */; };
-		26FA99352711C6F900A70AD1 /* AddAndBackButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA99342711C6F900A70AD1 /* AddAndBackButtonsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,9 +38,8 @@
 		26FA98FB2710161100A70AD1 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		26FA98FD27101C0600A70AD1 /* BackgroundGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradientView.swift; sourceTree = "<group>"; };
 		26FA99292711B4DD00A70AD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		26FA992D2711B79300A70AD1 /* AddPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPage.swift; sourceTree = "<group>"; };
+		26FA992D2711B79300A70AD1 /* AddItemPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemPage.swift; sourceTree = "<group>"; };
 		26FA99312711C27D00A70AD1 /* ButtonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFunction.swift; sourceTree = "<group>"; };
-		26FA99342711C6F900A70AD1 /* AddAndBackButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAndBackButtonsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				268833612712EB8600B405CA /* MapView.swift */,
-				26FA99342711C6F900A70AD1 /* AddAndBackButtonsView.swift */,
 				26FA98F627100AD400A70AD1 /* MainSearchView.swift */,
 				26FA98F2270FFD0C00A70AD1 /* CustomizedSearchBar.swift */,
 				26FA98F927100DD400A70AD1 /* HeaderView.swift */,
@@ -112,7 +109,7 @@
 			children = (
 				26FA98FB2710161100A70AD1 /* LoginPage.swift */,
 				26FA98E4270FD43E00A70AD1 /* HomePage.swift */,
-				26FA992D2711B79300A70AD1 /* AddPage.swift */,
+				26FA992D2711B79300A70AD1 /* AddItemPage.swift */,
 				2688335F27125D7E00B405CA /* ChosenEntityPage.swift */,
 			);
 			path = Pages;
@@ -201,13 +198,12 @@
 				26FA98E3270FD43E00A70AD1 /* WhereIsItApp.swift in Sources */,
 				268833622712EB8600B405CA /* MapView.swift in Sources */,
 				26FA98FE27101C0600A70AD1 /* BackgroundGradientView.swift in Sources */,
-				26FA992E2711B79300A70AD1 /* AddPage.swift in Sources */,
+				26FA992E2711B79300A70AD1 /* AddItemPage.swift in Sources */,
 				26FA98F727100AD400A70AD1 /* MainSearchView.swift in Sources */,
 				2688336027125D7E00B405CA /* ChosenEntityPage.swift in Sources */,
 				26FA98FC2710161100A70AD1 /* LoginPage.swift in Sources */,
 				26FA98F3270FFD0C00A70AD1 /* CustomizedSearchBar.swift in Sources */,
 				26FA992A2711B4DD00A70AD1 /* AppDelegate.swift in Sources */,
-				26FA99352711C6F900A70AD1 /* AddAndBackButtonsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

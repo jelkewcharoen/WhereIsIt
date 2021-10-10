@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginPage: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State var text: String = ""
     
@@ -23,10 +24,21 @@ struct LoginPage: View {
                     
                     Spacer()
                     
-                    AddAndBackButtonsView()
-                    
+                    HStack{
+                        Spacer()
+                        AddButton()
+                        Spacer()
+                        Button("Cancel",
+                            action: {
+                                self.presentationMode.wrappedValue.dismiss()
+                            })
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color("New Horizon"))
+                        .cornerRadius(10)
+                        Spacer()
+                    }
                     Spacer()
-                    
                 }
             }
             .navigationBarHidden(true)
@@ -43,5 +55,18 @@ struct LoginPage_Previews: PreviewProvider {
     static var previews: some View {
         LoginPage()
             .preferredColorScheme(.none)
+    }
+}
+
+struct AddButton: View {
+    var body: some View {
+        NavigationLink(
+            destination: AddItemPage()) {
+            Text("Add")
+        }
+        .foregroundColor(.white)
+        .padding()
+        .background(Color("Navy Blue"))
+        .cornerRadius(10)
     }
 }

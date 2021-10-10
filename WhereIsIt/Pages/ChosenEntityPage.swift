@@ -20,13 +20,18 @@ struct ChosenEntityPage: View {
                 VStack{
                     Spacer().frame(height: 50)
                     HeaderView()
-                    Text("CHOSEN ENTITY PAGE\nChosen: " + selectedEntity)
-                    Spacer().frame(height: 50)
-                    Button("Back") {
+                    Text(selectedEntity.uppercased())
+                    Spacer().frame(height: 25)
+                    MapView()
+                        .frame(width: 350, height: 450, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    Spacer().frame(height: 25)
+                    Button("Close") {
                         self.isPresented = false;
                     }
-                    MapView()
-                        .frame(width: 350, height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color("Navy Blue"))
+                    .cornerRadius(10)
                     Spacer()
                 }
             }

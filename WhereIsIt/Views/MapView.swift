@@ -9,9 +9,11 @@ import Foundation
 import UIKit
 import SwiftUI
 import MapKit
+import FirebaseFirestore
 
 struct MapView: UIViewRepresentable {
-    
+    @Binding var selectedEntity: String
+    var db = Firestore.firestore()
     typealias UIViewType = UIView
     
     func makeUIView(context: Context) -> UIView {
@@ -23,6 +25,22 @@ struct MapView: UIViewRepresentable {
         map.setRegion(MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)), animated: true)
         
         view.addSubview(map)
+        
+        //read from database
+        db.collection(selectedEntity).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    var latitude  = document.data()["Latitude"] as? Double
+                    var longitude = document.data()["Longitude"] as? Double
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+                    map.addAnnotation(annotation)
+                }
+            }
+        }
         
         map.translatesAutoresizingMaskIntoConstraints = false
         

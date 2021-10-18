@@ -4,7 +4,8 @@
 //
 //  Created by Andrew Lukman on 10/8/21.
 //
-
+import Firebase
+import FirebaseFirestore
 import SwiftUI
 
 struct MainSearchView: View {
@@ -12,6 +13,8 @@ struct MainSearchView: View {
     @State var text: String = ""
     @State private var showingEntityPage = false
     @State private var chosenEntity = ""
+    private var db = Firestore.firestore()
+    @State public var entityNameList = [String]()
     
     var body: some View {
         NavigationView {
@@ -35,10 +38,23 @@ struct MainSearchView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarTitle("Searching...")
+            .navigationBarTitle("Searching For ...")
         }
-        .frame(width: 300, height: 200, alignment: .center)
+        .frame(width: 300, height: 400, alignment: .center)
         .cornerRadius(20)
+        .onAppear(){
+            db.collection("List").getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else if entityNameList.isEmpty {
+                    var i = 0
+                    for document in querySnapshot!.documents {
+                        entityNameList.insert(document.documentID, at: i)
+                        i+=1
+                    }
+                }
+            }
+        }
     }
         
 }

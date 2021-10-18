@@ -16,3 +16,6 @@ Noah Teuscher - nteuscher3 - noahteuscher@gatech.edu
 
 #### Current Bugs:
 <strike>Navigation View is currently pretty buggy. When playing with UI, you can only press Back button 2-3 times before the main search gets disabled.</strike> Patched 10/10/21 - AL
+
+### Resources for Firebase
+https://stackoverflow.com/questions/64901180/running-cocoapods-on-apple-silicon-m1/64901980#64901980

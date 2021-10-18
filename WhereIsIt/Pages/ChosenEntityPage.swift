@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestore
 
 struct ChosenEntityPage: View {
     @Binding var isPresented: Bool
@@ -22,7 +24,7 @@ struct ChosenEntityPage: View {
                     HeaderView()
                     Text(selectedEntity.uppercased())
                     Spacer().frame(height: 25)
-                    MapView()
+                    MapView(selectedEntity: $selectedEntity)
                         .frame(width: 350, height: 450, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     Spacer().frame(height: 25)
                     Button("Close") {

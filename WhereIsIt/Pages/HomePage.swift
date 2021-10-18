@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
+import UIKit
+import Firebase
+import FirebaseFirestore
 
 struct HomePage: View {
     
     @State var text: String = ""
     @State private var showingEntityPage = false
     @State private var showingDeveloperPage = false
-    
     var body: some View {
         
         NavigationView {
@@ -22,15 +24,19 @@ struct HomePage: View {
                     Spacer().frame(height: 50)
                     HeaderView()
                     MainSearchView()
+                    Spacer()
+                    Text("Found a new item? Add it to our database!").foregroundColor(.white)
                     NavigationLink(
-                        destination: LoginPage()) {
-                        Text("Add")
-                    }
+                        //todo: add login page
+                        destination: AddItemPage()) {
+                        //destination: LoginPage()) {
+                            Text("Add Item").foregroundColor(.black)                    }
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color("Navy Blue"))
+                    .background(Color("Tech Gold"))
                     .cornerRadius(10)
-                    Spacer()
+                    
+                    /*
                     Group{
                         Text("Developer Button:")
                         Button("Show item list") {
@@ -39,7 +45,9 @@ struct HomePage: View {
                             DeveloperPage(isPresented: $showingDeveloperPage)
                         }
                     }
+                     */
                     Spacer()
+                     
                 }
             }
             .navigationBarHidden(true)
@@ -55,7 +63,7 @@ struct DeveloperPage: View {
     @Binding var isPresented: Bool
     
     var body: some View{
-        Text(entityNameList.description)
+        Text(MainSearchView().entityNameList.description)
         Button("Close") {
             self.isPresented = false;
         }

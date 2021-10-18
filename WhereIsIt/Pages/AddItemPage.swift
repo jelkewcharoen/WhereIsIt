@@ -11,9 +11,10 @@ struct AddItemPage: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State var itemName: String = ""
+    @State var selectedItem: String = ""
     @State var locationName: String = ""
     @State var redLabel: String = ""
-    
+    @State var expand: Bool = false
     var body: some View {
         NavigationView {
             ZStack {
@@ -31,7 +32,28 @@ struct AddItemPage: View {
                             Spacer()
                         }
                         
+                        VStack{
+                            HStack{
+                                CustomizedSearchBar(text: $itemName)
+                            }.onTapGesture {
+                                self.expand.toggle()
+                            }
+                            ForEach(MainSearchView().entityNameList.filter {
+                                self.itemName.isEmpty ? true : $0.prefix(itemName.count).localizedCaseInsensitiveContains(itemName)
+                            }, id: \.self) { name in
+                                HStack{
+                                    Button(name) {
+                                        print("Button tapped!")
+                                        selectedItem = name
+                                    }
+                                    .padding()
+                                    .foregroundColor(Color("White Black"))
+                                    Spacer()  // align left
+                                }
+                            }
+                        }.frame(width: 300, height: expand ? 500 : 100, alignment: .center)
                         itemEntryField(name: $itemName)
+                        
                         
                         Spacer().frame(height: 50)
                         
@@ -54,7 +76,8 @@ struct AddItemPage: View {
                     HStack{
                         Spacer()
                         Button(action: {
-                            entityNameList.append(itemName)
+                            //entityNameList.append(itemName)
+                            //add to database
                             print("Item name: " + itemName)
                             print("Location: " + locationName)
                             self.redLabel = "Added " + itemName + " @" + locationName

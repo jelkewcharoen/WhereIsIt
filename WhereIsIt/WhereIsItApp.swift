@@ -10,8 +10,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 
-//var entityNameList = ["bathroom", "microwave", "printer"]; // temporary array to store entities in main search
-
+public var entityNameList = [String]()
 
 @main
 struct WhereIsItApp: App {
@@ -23,5 +22,11 @@ struct WhereIsItApp: App {
             HomePage()
                 .preferredColorScheme(.none)
         }
+    }
+}
+
+struct WhereIsItApp_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }

@@ -63,7 +63,7 @@ struct DeveloperPage: View {
     @Binding var isPresented: Bool
     
     var body: some View{
-        Text(MainSearchView().entityNameList.description)
+        Text(entityNameList.description)
         Button("Close") {
             self.isPresented = false;
         }

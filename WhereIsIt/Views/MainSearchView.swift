@@ -40,7 +40,6 @@ struct MainSearchView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarTitle("Searching For ...")
         }
-        .frame(width: 300, height: 400, alignment: .center)
         .cornerRadius(20)
         .onAppear(){
             db.collection("List").getDocuments() { (querySnapshot, err) in
@@ -49,7 +48,7 @@ struct MainSearchView: View {
                 } else if entityNameList.isEmpty {
                     var i = 0
                     for document in querySnapshot!.documents {
-                        entityNameList.insert(document.documentID, at: i)
+                        entityNameList.append(document.documentID)
                         i+=1
                     }
                 }

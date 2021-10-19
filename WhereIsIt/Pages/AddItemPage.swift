@@ -6,15 +6,16 @@
 //
 
 import SwiftUI
-
+import FirebaseFirestore
 struct AddItemPage: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    @State var itemName: String = ""
-    @State var selectedItem: String = ""
-    @State var locationName: String = ""
+    @State var allItems = [String]()
+    @State var floor: String = ""
+    @State var description: String = ""
     @State var redLabel: String = ""
-    @State var expand: Bool = false
+    @State private var expanded: Bool = false
+    @State public var selectedItem = "Item"
+    var db = Firestore.firestore()
     var body: some View {
         NavigationView {
             ZStack {
@@ -31,41 +32,45 @@ struct AddItemPage: View {
                                 .padding([.top,.leading])
                             Spacer()
                         }
-                        
                         VStack{
-                            HStack{
-                                CustomizedSearchBar(text: $itemName)
-                            }.onTapGesture {
-                                self.expand.toggle()
-                            }
-                            ForEach(MainSearchView().entityNameList.filter {
-                                self.itemName.isEmpty ? true : $0.prefix(itemName.count).localizedCaseInsensitiveContains(itemName)
-                            }, id: \.self) { name in
-                                HStack{
-                                    Button(name) {
-                                        print("Button tapped!")
-                                        selectedItem = name
+                            DisclosureGroup("   \(self.selectedItem)", isExpanded: $expanded){
+                                ScrollView{
+                                    VStack{
+                                        ForEach(allItems, id: \.self){ item in
+                                            Text(item)
+                                                .padding(.all)
+                                                .onTapGesture {
+                                                    self.selectedItem = item
+                                                    withAnimation(){
+                                                    self.expanded.toggle()
+                                                }
+                                            }
+                                        }
                                     }
-                                    .padding()
-                                    .foregroundColor(Color("White Black"))
-                                    Spacer()  // align left
                                 }
-                            }
-                        }.frame(width: 300, height: expand ? 500 : 100, alignment: .center)
-                        itemEntryField(name: $itemName)
-                        
-                        
-                        Spacer().frame(height: 50)
-                        
+                            }.background(Color("Tech Gold"))
+                                .foregroundColor(.white)
+                                .padding(.all)
+                            .accentColor(.white)
+                            .cornerRadius(8)
+
+                        }.padding(.trailing)
                         HStack{
-                            Text("Location:")
+                            Text("Floor:")
                                 .font(.system(size: 20, weight: .light, design: .rounded))
                                 .foregroundColor(Color("White Black"))
                                 .padding([.top,.leading])
                             Spacer()
                         }
-                        
-                        locationEntryField(location: $locationName)
+                        entryField(text: $floor)
+                        HStack{
+                            Text("Description:")
+                                .font(.system(size: 20, weight: .light, design: .rounded))
+                                .foregroundColor(Color("White Black"))
+                                .padding([.top,.leading])
+                            Spacer()
+                        }
+                        entryField(text: $description)
                     }
                     
                     Spacer()
@@ -76,15 +81,30 @@ struct AddItemPage: View {
                     HStack{
                         Spacer()
                         Button(action: {
-                            //entityNameList.append(itemName)
-                            //add to database
-                            print("Item name: " + itemName)
-                            print("Location: " + locationName)
-                            self.redLabel = "Added " + itemName + " @" + locationName
-                            self.itemName = ""
-                            self.locationName = ""
+                            if(selectedItem != "Item" && !floor.isEmpty){
+                                //add item to the database
+                                print("add item")
+                                //placeholders--todo: should be current's location
+                                var latitude = 33
+                                var longtitude = -85
+                                self.redLabel = "Added \(selectedItem ) @\(String(latitude)), \(String(longtitude))"
+                                db.collection(selectedItem).addDocument(data: [
+                                    "Longitude": longtitude,
+                                    "Latitude": latitude,
+                                    "Floor": floor,
+                                    "Description":description]){ err in
+                                        if let err = err {
+                                                print("Error adding document: \(err)")
+                                            } else {
+                                                print("Document added")
+                                            }
+                                    }
+                                self.selectedItem = "Item"
+                                self.floor = ""
+                                self.description = ""
+                            }
                         }) {
-                            Text("Add Item")
+                            Text("Use My Location")
                         }
                         .foregroundColor(.white)
                         .padding()
@@ -112,6 +132,13 @@ struct AddItemPage: View {
         }
         .statusBar(hidden: true)
         .navigationBarBackButtonHidden(true)
+        .onAppear(){
+            entityNameList.forEach({ item in
+                allItems.append(item)
+            })
+            //todo: add support for new entity
+            //allItems.append("Other")
+        }
     }
 }
 
@@ -123,26 +150,15 @@ struct AddItemPage_Previews: PreviewProvider {
 }
 
 
-struct itemEntryField: View {
+struct entryField: View {
     
-    @Binding var name: String
+    @Binding var text: String
     
     var body: some View {
-        TextField("",text: $name)
+        TextField("",text: $text)
             .autocapitalization(.none)
             .border(Color(UIColor.separator))
             .padding([.leading, .trailing])
     }
 }
 
-struct locationEntryField: View {
-    
-    @Binding var location: String
-    
-    var body: some View {
-        TextField("",text: $location)
-            .autocapitalization(.none)
-            .border(Color(UIColor.separator))
-            .padding([.leading, .trailing])
-    }
-}

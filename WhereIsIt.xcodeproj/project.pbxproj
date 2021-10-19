@@ -23,6 +23,7 @@
 		26FA992E2711B79300A70AD1 /* AddItemPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA992D2711B79300A70AD1 /* AddItemPage.swift */; };
 		26FA99322711C27D00A70AD1 /* ButtonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA99312711C27D00A70AD1 /* ButtonFunction.swift */; };
 		E0FB18F3271D284100B4F82C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0FB18F2271D284100B4F82C /* GoogleService-Info.plist */; };
+		E0FB18F7271E24CD00B4F82C /* DropDownMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FB18F6271E24CD00B4F82C /* DropDownMenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		63545626D768039A5A9E67BF /* Pods_WhereIsIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhereIsIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A39D13E5B9A153C29D45EA8C /* Pods-WhereIsIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereIsIt.debug.xcconfig"; path = "Target Support Files/Pods-WhereIsIt/Pods-WhereIsIt.debug.xcconfig"; sourceTree = "<group>"; };
 		E0FB18F2271D284100B4F82C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		E0FB18F6271E24CD00B4F82C /* DropDownMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		26FA98E1270FD43E00A70AD1 /* WhereIsIt */ = {
 			isa = PBXGroup;
 			children = (
+				E0C8A284271E44DF00136BD4 /* Controllers */,
 				26FA99292711B4DD00A70AD1 /* AppDelegate.swift */,
 				26FA98E2270FD43E00A70AD1 /* WhereIsItApp.swift */,
 				26FA99012711A10B00A70AD1 /* Pages */,
@@ -110,6 +113,7 @@
 				26FA98F2270FFD0C00A70AD1 /* CustomizedSearchBar.swift */,
 				26FA98F927100DD400A70AD1 /* HeaderView.swift */,
 				26FA98FD27101C0600A70AD1 /* BackgroundGradientView.swift */,
+				E0FB18F6271E24CD00B4F82C /* DropDownMenuView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -148,6 +152,13 @@
 				63545626D768039A5A9E67BF /* Pods_WhereIsIt.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E0C8A284271E44DF00136BD4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +279,7 @@
 				26FA98E5270FD43E00A70AD1 /* HomePage.swift in Sources */,
 				26FA99322711C27D00A70AD1 /* ButtonFunction.swift in Sources */,
 				26FA98E3270FD43E00A70AD1 /* WhereIsItApp.swift in Sources */,
+				E0FB18F7271E24CD00B4F82C /* DropDownMenuView.swift in Sources */,
 				268833622712EB8600B405CA /* MapView.swift in Sources */,
 				26FA98FE27101C0600A70AD1 /* BackgroundGradientView.swift in Sources */,
 				26FA992E2711B79300A70AD1 /* AddItemPage.swift in Sources */,

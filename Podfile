@@ -8,6 +8,7 @@ target 'WhereIsIt' do
   # Pods for WhereIsIt
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
+pod 'DropDown'
 
 end
 

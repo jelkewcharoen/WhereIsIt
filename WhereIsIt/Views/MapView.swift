@@ -33,8 +33,8 @@ struct MapView: UIViewRepresentable {
             } else {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
-                    var latitude  = document.data()["Latitude"] as? Double
-                    var longitude = document.data()["Longitude"] as? Double
+                    let latitude  = document.data()["Latitude"] as? Double
+                    let longitude = document.data()["Longitude"] as? Double
                     let annotation = MKPointAnnotation()
                     annotation.coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
                     map.addAnnotation(annotation)
@@ -55,5 +55,11 @@ struct MapView: UIViewRepresentable {
     
     func updateUIView(_ uiView: UIView, context: Context) {
         //do nothing
+    }
+}
+
+struct MapView_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }

@@ -21,7 +21,7 @@ Noah Teuscher - nteuscher3 - noahteuscher@gatech.edu
 <li><strike>Add Item button in the Add Item Page does not add to the Selection Menu in Homepage</strike>  needs the "other" option</li>
 <li>In dark mode, the outline for the description and floor is very hard to see</li>
   Add Item page needs to have 2 options: select a building or use current location
-  
+<li>When you go to search, there is no way to close the keypad. So users are stuck at the homepage</li>  
 </ul>
 
 ### Useful Links 

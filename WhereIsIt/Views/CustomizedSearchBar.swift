@@ -9,13 +9,19 @@ import Foundation
 import SwiftUI
 
 struct CustomizedSearchBar: UIViewRepresentable {
-    
     @Binding var text: String
+    var color: UIColor? = nil
+    
     
     func makeUIView(context: UIViewRepresentableContext<CustomizedSearchBar>) -> UISearchBar {
         let searchbar = UISearchBar(frame: .zero)
         searchbar.autocapitalizationType = .none
         searchbar.delegate = context.coordinator
+        if(color != nil){
+            searchbar.barTintColor = color!
+            searchbar.tintColor = UIColor.white
+        }
+        
         return searchbar
     }
     

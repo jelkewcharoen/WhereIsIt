@@ -23,7 +23,7 @@ struct HomePage: View {
                 VStack{
                     Spacer().frame(height: 50)
                     HeaderView()
-                    MainSearchView()
+                    MainSearchView().padding(.horizontal)
                     Spacer()
                     Text("Found a new item? Add it to our database!").foregroundColor(.white)
                     NavigationLink(

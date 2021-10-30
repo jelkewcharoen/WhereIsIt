@@ -10,6 +10,14 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+#endif
+
 public var entityNameList = [String]()
 
 @main
@@ -27,6 +35,6 @@ struct WhereIsItApp: App {
 
 struct WhereIsItApp_Previews: PreviewProvider {
     static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+        HomePage()
     }
 }

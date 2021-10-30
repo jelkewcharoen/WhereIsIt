@@ -53,6 +53,9 @@ struct HomePage: View {
             .navigationBarHidden(true)
             .navigationBarTitle(Text("Home"))
             .edgesIgnoringSafeArea([.top, .bottom])
+            .onTapGesture {
+                self.hideKeyboard()
+            }
         }
         .statusBar(hidden: true)
         .navigationBarBackButtonHidden(true)

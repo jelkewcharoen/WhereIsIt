@@ -21,7 +21,7 @@ struct AddSearchView: View {
             DisclosureGroup("   \(self.chosenEntity ?? "Select")", isExpanded: $showingEntityPage){
                 CustomizedSearchBar(text: $text, color: color)
                 ScrollView{
-                    ForEach(entityNameList.filter {
+                    ForEach(allItems.filter {
                         self.text.isEmpty ? true : $0.prefix(text.count).localizedCaseInsensitiveContains(text)
                     }, id: \.self) { name in
                        

@@ -10,7 +10,7 @@ import FirebaseFirestore
 struct AddItemPage: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var allItems = [String]()
-    
+    @State var allBuildings = ["Other"]
     //information variables
     @State var floor: String = ""
     @State var description: String = ""
@@ -53,7 +53,8 @@ struct AddItemPage: View {
                                     .padding([.top,.leading])
                                 Spacer()
                             }
-                            AddSearchView(allItems: $allItems, chosenEntity: $selectedBuilding)
+                            
+                            AddSearchView(allItems: $allBuildings, chosenEntity: $selectedBuilding)
                             //todo: change from allitems to some list from google map once we finish location feature
                         }
                         Group{
@@ -96,8 +97,8 @@ struct AddItemPage: View {
                                         //add item to the database
                                         print("add item")
                                         //placeholders--todo: should be current's location
-                                        var latitude = 33
-                                        var longtitude = -85
+                                        var latitude = 33.774727
+                                        var longtitude = -84.397220
                                         self.redLabel = "Added \(selectedItem ) @\(String(latitude)), \(String(longtitude))"
                                         db.collection(selectedItem!).addDocument(data: [
                                             "Longitude": longtitude,

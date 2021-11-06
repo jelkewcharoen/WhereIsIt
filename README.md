@@ -18,10 +18,11 @@ Noah Teuscher - nteuscher3 - noahteuscher@gatech.edu
 <ul>
 <li><strike>Navigation View is currently pretty buggy. When playing with UI, you can only press Back button 2-3 times before the main search gets disabled.</strike> Patched 10/10/21 - AL
 </li>
-<li><strike>Add Item button in the Add Item Page does not add to the Selection Menu in Homepage</strike>  needs the "other" option</li>
-<li>In dark mode, the outline for the description and floor is very hard to see</li>
-  Add Item page needs to have 2 options: select a building or use current location
-<li>When you go to search, there is no way to close the keypad. So users are stuck at the homepage</li>  
+  <li><strike>Add Item button in the Add Item Page does not add to the Selection Menu in Homepage</strike>  needs the "other" option</li>
+  <li><strike>When you go to search, there is no way to close the keypad. So users are stuck at the homepage</strike></li> 
+  <li>In dark mode, the outline for the description and floor is very hard to see</li>
+  <li>Add Item page needs to have 2 options: select a building or use current location</li>
+  <li>The x button in the search bar does not clear the text on the search bar [Homepage]</li>
 </ul>
 
 ### Useful Links 

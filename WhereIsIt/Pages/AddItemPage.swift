@@ -166,10 +166,7 @@ struct AddItemPage: View {
 
 struct AddItemPage_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            Text("hello")
-            Text("hello")
-        }
+        Text("hello")
         //AddItemPage()
     }
 }

@@ -47,7 +47,6 @@ struct HomePage: View {
                     }
                      */
                     Spacer()
-                     
                 }
             }
             .navigationBarHidden(true)

@@ -93,7 +93,12 @@ struct AddItemPage: View {
                             HStack{
                                 Spacer()
                                 Button(action: {
-                                    if(selectedItem != nil && selectedBuilding != nil && !floor.isEmpty){
+                                    //Floor must be int between 0 and 50
+                                    if ( Int(floor) == nil || Int(floor)! < 0 || Int(floor)! > 50) {
+                                        self.redLabel = "Please input Integer between 0 and 50"
+                                    }
+                                    //all fields must be filled out
+                                    else if(selectedItem != nil && selectedBuilding != nil && !floor.isEmpty && !description.isEmpty){
                                         //add item to the database
                                         print("add item")
                                         //placeholders--todo: should be current's location

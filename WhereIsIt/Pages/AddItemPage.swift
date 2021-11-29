@@ -10,7 +10,8 @@ import FirebaseFirestore
 struct AddItemPage: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var allItems = [String]()
-    @State var allBuildings = ["Other"]
+    @State var allBuildings = [String]()
+    @State var listBuildings = [Building]()
     //information variables
     @State var floor: String = ""
     @State var description: String = ""
@@ -33,6 +34,20 @@ struct AddItemPage: View {
                 VStack{
                     Spacer().frame(height: 50)
                     HeaderView()
+                    .onAppear {
+                        Api().getPosts { (buildings) in
+                            self.listBuildings = buildings
+                        }
+                        if !buildingNameList.isEmpty{
+                        print("===== I AM HERE =====")
+                            buildingNameList.forEach({ item in
+                                allBuildings.append(item)
+                            })
+                        }
+                        for building in listBuildings {
+                            allBuildings.append(building.name)
+                        }
+                    }
                     
                     ScrollView {
                         Group{
@@ -80,9 +95,6 @@ struct AddItemPage: View {
                                 .frame(minHeight: 50.0)
                                 .background(Color("Tech Gold"))
                                 .padding(.horizontal)
-                               
-                                
-                                
                         }
                         Spacer()
                             .frame(height: 30.0)
@@ -166,8 +178,7 @@ struct AddItemPage: View {
 
 struct AddItemPage_Previews: PreviewProvider {
     static var previews: some View {
-        Text("hello")
-        //AddItemPage()
+        AddItemPage()
     }
 }
 

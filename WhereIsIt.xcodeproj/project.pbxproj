@@ -22,6 +22,7 @@
 		26FA992A2711B4DD00A70AD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA99292711B4DD00A70AD1 /* AppDelegate.swift */; };
 		26FA992E2711B79300A70AD1 /* AddItemPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA992D2711B79300A70AD1 /* AddItemPage.swift */; };
 		26FA99322711C27D00A70AD1 /* ButtonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA99312711C27D00A70AD1 /* ButtonFunction.swift */; };
+		49A2B25827546824004EBAD8 /* BuildingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A2B25727546824004EBAD8 /* BuildingData.swift */; };
 		E04A03DF272A541D009587E7 /* AddSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A03DE272A541D009587E7 /* AddSearchView.swift */; };
 		E0FB18F3271D284100B4F82C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0FB18F2271D284100B4F82C /* GoogleService-Info.plist */; };
 		E0FB18F7271E24CD00B4F82C /* DropDownMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FB18F6271E24CD00B4F82C /* DropDownMenuView.swift */; };
@@ -45,6 +46,7 @@
 		26FA99292711B4DD00A70AD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26FA992D2711B79300A70AD1 /* AddItemPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemPage.swift; sourceTree = "<group>"; };
 		26FA99312711C27D00A70AD1 /* ButtonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFunction.swift; sourceTree = "<group>"; };
+		49A2B25727546824004EBAD8 /* BuildingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingData.swift; sourceTree = "<group>"; };
 		63545626D768039A5A9E67BF /* Pods_WhereIsIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhereIsIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A39D13E5B9A153C29D45EA8C /* Pods-WhereIsIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereIsIt.debug.xcconfig"; path = "Target Support Files/Pods-WhereIsIt/Pods-WhereIsIt.debug.xcconfig"; sourceTree = "<group>"; };
 		E04A03DE272A541D009587E7 /* AddSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSearchView.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				26FA99012711A10B00A70AD1 /* Pages */,
 				26FA98F827100D0B00A70AD1 /* Views */,
 				26FA99332711C2CA00A70AD1 /* Enums */,
+				49A2B25627546806004EBAD8 /* Api */,
 				26FA98E6270FD43F00A70AD1 /* Assets.xcassets */,
 				26FA98EB270FD43F00A70AD1 /* Info.plist */,
 				E0FB18F2271D284100B4F82C /* GoogleService-Info.plist */,
@@ -147,6 +150,14 @@
 				13AEFEF77B85C755DAFF8927 /* Pods-WhereIsIt.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		49A2B25627546806004EBAD8 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				49A2B25727546824004EBAD8 /* BuildingData.swift */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 		CE278ED198C97712421C96FB /* Frameworks */ = {
@@ -281,6 +292,7 @@
 				26FA98FA27100DD400A70AD1 /* HeaderView.swift in Sources */,
 				26FA98E5270FD43E00A70AD1 /* HomePage.swift in Sources */,
 				26FA99322711C27D00A70AD1 /* ButtonFunction.swift in Sources */,
+				49A2B25827546824004EBAD8 /* BuildingData.swift in Sources */,
 				26FA98E3270FD43E00A70AD1 /* WhereIsItApp.swift in Sources */,
 				E0FB18F7271E24CD00B4F82C /* DropDownMenuView.swift in Sources */,
 				268833622712EB8600B405CA /* MapView.swift in Sources */,

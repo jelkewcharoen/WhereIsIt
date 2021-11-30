@@ -32,6 +32,7 @@ struct MapView: UIViewRepresentable {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
+                    //document.documentID = building  name
                     print("\(document.documentID) => \(document.data())")
                     let latitude  = document.data()["Latitude"] as? Double
                     let longitude = document.data()["Longitude"] as? Double

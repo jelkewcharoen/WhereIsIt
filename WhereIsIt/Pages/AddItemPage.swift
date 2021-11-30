@@ -34,21 +34,6 @@ struct AddItemPage: View {
                 VStack{
                     Spacer().frame(height: 50)
                     HeaderView()
-                    .onAppear {
-                        Api().getPosts { (buildings) in
-                            self.listBuildings = buildings
-                        }
-                        if !buildingNameList.isEmpty{
-                        print("===== I AM HERE =====")
-                            buildingNameList.forEach({ item in
-                                allBuildings.append(item)
-                            })
-                        }
-                        for building in listBuildings {
-                            allBuildings.append(building.name)
-                        }
-                    }
-                    
                     ScrollView {
                         Group{
                             HStack{
@@ -70,6 +55,17 @@ struct AddItemPage: View {
                             }
                             
                             AddSearchView(allItems: $allBuildings, chosenEntity: $selectedBuilding)
+                                .onAppear() {
+                                    print(allBuildings)
+                                }
+                                .onTapGesture() {
+                                    if !buildingNameList.isEmpty && allBuildings.isEmpty{
+                                    print("===== I AM HERE =====")
+                                    buildingNameList.forEach({ item in
+                                        allBuildings.append(item)
+                                    })
+                                }
+                            }
                             //todo: change from allitems to some list from google map once we finish location feature
                         }
                         Group{
@@ -105,33 +101,30 @@ struct AddItemPage: View {
                             HStack{
                                 Spacer()
                                 Button(action: {
-                                    //Floor must be int between 0 and 50
-                                    if ( Int(floor) == nil || Int(floor)! < 0 || Int(floor)! > 50) {
-                                        self.redLabel = "Please input Integer between 0 and 50"
-                                    }
                                     //all fields must be filled out
-                                    else if(selectedItem != nil && selectedBuilding != nil && !floor.isEmpty && !description.isEmpty){
+                                    if(selectedItem != "Item" && selectedBuilding != nil && !floor.isEmpty && !description.isEmpty){
                                         //add item to the database
-                                        print("add item")
-                                        //placeholders--todo: should be current's location
-                                        var latitude = 33.774727
-                                        var longtitude = -84.397220
-                                        self.redLabel = "Added \(selectedItem ) @\(String(latitude)), \(String(longtitude))"
-                                        db.collection(selectedItem!).addDocument(data: [
-                                            "Longitude": longtitude,
-                                            "Latitude": latitude,
-                                            "Floor": floor,
+                                        
+                                        if(selectedItem == "Other"){
+                                            db.collection("List").document(selectedItem!).setData(["Exist" : true])
+                                        }
+                                        db.collection(selectedItem!).document(selectedBuilding!).collection(floor).addDocument(data: [
                                             "Description":description]){ err in
                                                 if let err = err {
                                                         print("Error adding document: \(err)")
                                                     } else {
                                                         print("Document added")
+                                                        self.redLabel = "Added item"
                                                     }
                                             }
                                         self.selectedItem = "Item"
                                         self.floor = ""
                                         self.description = ""
                                     }
+                                    //Floor must be int between 0 and 50
+                                    else if ( Int(floor) == nil || Int(floor)! < 0 || Int(floor)! > 50) {
+                                            self.redLabel = "Please input Integer between 0 and 50"
+                                        }
                                     else {
                                         self.redLabel = "Please input all information"
                                     }
@@ -168,9 +161,13 @@ struct AddItemPage: View {
                 entityNameList.forEach({ item in
                     allItems.append(item)
                 })
+                allItems.append("Other")
             }
-            //todo: add support for new entity
-            //allItems.append("Other")
+            if buildingNameList.isEmpty{
+                Api().getPosts { (buildings) in
+                    self.listBuildings = buildings
+                }
+            }
         }
     }
 }

@@ -60,7 +60,6 @@ struct AddItemPage: View {
                                 }
                                 .onTapGesture() {
                                     if !buildingNameList.isEmpty && allBuildings.isEmpty{
-                                    print("===== I AM HERE =====")
                                     buildingNameList.forEach({ item in
                                         allBuildings.append(item)
                                     })

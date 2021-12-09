@@ -35,6 +35,8 @@ class Api {
                 let escape = response.children.locations
                 for building in escape {
                     buildingNameList.append(building.name)
+                    buildingLat.append(building.lat)
+                    buildingLng.append(building.lng)
                 }
                 completion(response.children.locations)
             }

@@ -19,11 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Firestore.firestore().collection("List").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
-            } else if entityNameList.isEmpty {
-                var i = 0
-                for document in querySnapshot!.documents {
-                    entityNameList.append(document.documentID)
-                    i+=1
+            } else {
+                if entityNameList.isEmpty {
+                    for document in querySnapshot!.documents {
+                        entityNameList.append(document.documentID)
+                    }
+                }
+                if buildingList.isEmpty {
+                    Api().getPosts { (buildings) in
+                        buildingList = buildings
+                    }
                 }
             }
         }

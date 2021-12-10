@@ -11,7 +11,7 @@ struct AddItemPage: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var allItems = [String]()
     @State var allBuildings = [String]()
-    @State var listBuildings = [Building]()
+    //@State var listBuildings = [Building]()
     //information variables
     @State var floor: String = ""
     @State var description: String = ""
@@ -55,16 +55,16 @@ struct AddItemPage: View {
                             }
                             
                             AddSearchView(allItems: $allBuildings, chosenEntity: $selectedBuilding)
-                                .onAppear() {
-                                    print(allBuildings)
-                                }
-                                .onTapGesture() {
-                                    if !buildingNameList.isEmpty && allBuildings.isEmpty{
-                                    buildingNameList.forEach({ item in
-                                        allBuildings.append(item)
-                                    })
-                                }
-                            }
+//                                .onAppear() {
+//                                    print(allBuildings)
+//                                }
+//                                .onTapGesture() {
+//                                    if !buildingNameList.isEmpty && allBuildings.isEmpty{
+//                                    buildingNameList.forEach({ item in
+//                                        allBuildings.append(item)
+//                                    })
+//                                }
+//                            }
                             //todo: change from allitems to some list from google map once we finish location feature
                         }
                         Group{
@@ -105,8 +105,10 @@ struct AddItemPage: View {
                                         //add item to the database
                                         
                                         if(selectedItem == "Other"){
-                                            db.collection("List").document(selectedItem!).setData(["Exist" : true])
+                                            //has to create a field to add the item name
+                                            //db.collection("List").document(selectedItem!).setData(["Exist" : true])
                                         }
+                                        db.collection(selectedItem!).document(selectedBuilding!).setData(["hasItem" : true], merge: true)
                                         db.collection(selectedItem!).document(selectedBuilding!).collection(floor).addDocument(data: [
                                             "Description":description]){ err in
                                                 if let err = err {
@@ -162,10 +164,10 @@ struct AddItemPage: View {
                 })
                 allItems.append("Other")
             }
-            if buildingNameList.isEmpty{
-                Api().getPosts { (buildings) in
-                    self.listBuildings = buildings
-                }
+            if !buildingList.isEmpty{
+                buildingList.forEach({ item in
+                    allBuildings.append(item.name)
+                })
             }
         }
     }

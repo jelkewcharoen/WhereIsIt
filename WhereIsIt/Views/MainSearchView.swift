@@ -30,39 +30,39 @@ struct MainSearchView: View {
     var buttonTexts = ["Help Out", "Earn Points"]
 
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(titles[messageToggle])
-                .font(.headline)
-            Text(messages[messageToggle])
-                .padding(.top)
-            Label(symbolMessages[messageToggle], systemImage: symbols[messageToggle])
-                .font(.caption)
-                .padding(.top)
-            Button(buttonTexts[messageToggle]) {
-                showAlert = true;
-                self.stopTimer()
-            }
-            .padding(.top)
-            .alert(isPresented:$showAlert) {
-                Alert(
-                    title: Text("Title"),
-                    message: Text("Button pressed in \(seconds) seconds."),
-                    primaryButton: .destructive(Text("Reset Timer")) {
-                        print("Toggle Prompt...")
-                        seconds = 0;
-                        self.startTimer()
-                        messageToggle = messageToggle == 0 ? 1 : 0;
-                    },
-                    secondaryButton: .cancel()
-                )
-            }
-        }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(20)
-        .onAppear {
-            self.startTimer()
-        }
+//        VStack(alignment: .leading) {
+//            Text(titles[messageToggle])
+//                .font(.headline)
+//            Text(messages[messageToggle])
+//                .padding(.top)
+//            Label(symbolMessages[messageToggle], systemImage: symbols[messageToggle])
+//                .font(.caption)
+//                .padding(.top)
+//            Button(buttonTexts[messageToggle]) {
+//                showAlert = true;
+//                self.stopTimer()
+//            }
+//            .padding(.top)
+//            .alert(isPresented:$showAlert) {
+//                Alert(
+//                    title: Text("Title"),
+//                    message: Text("Button pressed in \(seconds) seconds."),
+//                    primaryButton: .destructive(Text("Reset Timer")) {
+//                        print("Toggle Prompt...")
+//                        seconds = 0;
+//                        self.startTimer()
+//                        messageToggle = messageToggle == 0 ? 1 : 0;
+//                    },
+//                    secondaryButton: .cancel()
+//                )
+//            }
+//        }
+//        .padding()
+//        .background(Color.white)
+//        .cornerRadius(20)
+//        .onAppear {
+//            self.startTimer()
+//        }
         NavigationView {
             ScrollView {
                 CustomizedSearchBar(text: $text)

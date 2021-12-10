@@ -15,8 +15,8 @@ struct Children: Codable {
     var locations: [Building]
 }
 
-struct Building: Codable, Identifiable {
-    let id = UUID()
+public struct Building: Codable, Identifiable {
+    public let id = UUID()
     var name: String
     var lat: Double
     var lng: Double
@@ -32,12 +32,12 @@ class Api {
         URLSession.shared.dataTask(with: url) { (data, _, _) in
             let response = try! JSONDecoder().decode(Response.self, from: data!)
             DispatchQueue.main.async {
-                let escape = response.children.locations
-                for building in escape {
-                    buildingNameList.append(building.name)
-                    buildingLat.append(building.lat)
-                    buildingLng.append(building.lng)
-                }
+//                let escape = response.children.locations
+//                for building in escape {
+//                    buildingNameList.append(building.name)
+//                    buildingLat.append(building.lat)
+//                    buildingLng.append(building.lng)
+//                }
                 completion(response.children.locations)
             }
         }

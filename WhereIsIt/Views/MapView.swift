@@ -95,6 +95,9 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
         checkLocationAuthorization()
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    }
+    
     private func checkLocationAuthorization() {
         guard let locationManager = locationManager else { return }
         
@@ -103,9 +106,11 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         case .restricted:
-            print("Your location is restricted likely due to parental controls.")
+            locationManager.requestWhenInUseAuthorization()
+//            print("Your location is restricted likely due to parental controls.")
         case .denied:
-            print("Location permission is denied. Go into settings to change it.")
+            locationManager.requestWhenInUseAuthorization()
+//            print("Location permission is denied. Go into settings to change it.")
         case .authorizedAlways, .authorizedWhenInUse:
             region = MKCoordinateRegion(center: locationManager.location!.coordinate,
                                         span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))

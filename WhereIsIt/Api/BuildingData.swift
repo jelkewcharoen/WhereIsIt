@@ -36,12 +36,6 @@ class Api {
         URLSession.shared.dataTask(with: url) { (data, _, _) in
             let response = try! JSONDecoder().decode(Response.self, from: data!)
             DispatchQueue.main.async {
-//                let escape = response.children.locations
-//                for building in escape {
-//                    buildingNameList.append(building.name)
-//                    buildingLat.append(building.lat)
-//                    buildingLng.append(building.lng)
-//                }
                 completion(response.children.locations)
             }
         }

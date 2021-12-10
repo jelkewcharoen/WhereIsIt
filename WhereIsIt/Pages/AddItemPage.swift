@@ -15,6 +15,7 @@ struct AddItemPage: View {
     //information variables
     @State var floor: String = ""
     @State var description: String = ""
+    @State var newItem: String = ""
     @State public var selectedItem: String?
     @State public var selectedBuilding: String?
     @State var redLabel: String = ""
@@ -23,10 +24,12 @@ struct AddItemPage: View {
     @State private var expandedItem: Bool = false
     @State private var expandedBuilding: Bool = false
     
+    @State var addNewItem: Bool = false
+    
     var db = Firestore.firestore()
     init() {
             UITextView.appearance().backgroundColor = .clear
-        }
+    }
     var body: some View {
         NavigationView {
             ZStack {
@@ -36,6 +39,7 @@ struct AddItemPage: View {
                     HeaderView()
                     ScrollView {
                         Group{
+                            
                             HStack{
                                 Text("Item:")
                                     .font(.system(size: 20, weight: .light, design: .rounded))
@@ -44,6 +48,19 @@ struct AddItemPage: View {
                                 Spacer()
                             }
                             AddSearchView(allItems: $allItems, chosenEntity: $selectedItem)
+                            HStack{
+                                Button(action:{
+                                    addNewItem.toggle()
+                                }){
+                                    Text("Add new category").accentColor(.white)
+                                }.padding(.leading, 30)
+                                Spacer()
+                            }
+                            
+                            if addNewItem {
+                                TextField("Item Name",text: $newItem).background(Color("Tech Gold")).padding(.horizontal)
+                            }
+                            
                         }
                         Group{
                             HStack{
@@ -55,17 +72,6 @@ struct AddItemPage: View {
                             }
                             
                             AddSearchView(allItems: $allBuildings, chosenEntity: $selectedBuilding)
-//                                .onAppear() {
-//                                    print(allBuildings)
-//                                }
-//                                .onTapGesture() {
-//                                    if !buildingNameList.isEmpty && allBuildings.isEmpty{
-//                                    buildingNameList.forEach({ item in
-//                                        allBuildings.append(item)
-//                                    })
-//                                }
-//                            }
-                            //todo: change from allitems to some list from google map once we finish location feature
                         }
                         Group{
                             HStack{
@@ -101,12 +107,14 @@ struct AddItemPage: View {
                                 Spacer()
                                 Button(action: {
                                     //all fields must be filled out
-                                    if(selectedItem != "Item" && selectedBuilding != nil && !floor.isEmpty && !description.isEmpty){
+                                    if((selectedItem != nil || newItem != "") && selectedBuilding != nil && !floor.isEmpty && !description.isEmpty){
                                         //add item to the database
-                                        
-                                        if(selectedItem == "Other"){
-                                            //has to create a field to add the item name
-                                            //db.collection("List").document(selectedItem!).setData(["Exist" : true])
+            
+                                        if (selectedItem == nil){
+                                            //add new category
+                                            print(newItem)
+                                            selectedItem = newItem
+                                            db.collection("List").document(selectedItem!).setData(["Exist" : true])
                                         }
                                         db.collection(selectedItem!).document(selectedBuilding!).setData(["hasItem" : true], merge: true)
                                         db.collection(selectedItem!).document(selectedBuilding!).collection(floor).addDocument(data: [
@@ -155,6 +163,7 @@ struct AddItemPage: View {
             }
             .edgesIgnoringSafeArea([.top, .bottom])
         }
+        .navigationBarTitle(Text(""), displayMode: .inline)
         .statusBar(hidden: true)
         .navigationBarBackButtonHidden(true)
         .onAppear(){
@@ -162,12 +171,17 @@ struct AddItemPage: View {
                 entityNameList.forEach({ item in
                     allItems.append(item)
                 })
-                allItems.append("Other")
             }
             if !buildingList.isEmpty{
                 buildingList.forEach({ item in
                     allBuildings.append(item.name)
                 })
+            }
+            Firestore.firestore().collection("List").addSnapshotListener{ (querySnapshot, error) in
+                allItems.removeAll()
+                for document in entityNameList{
+                    allItems.append(document)
+                }
             }
         }
     }

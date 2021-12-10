@@ -87,15 +87,10 @@ struct MainSearchView: View {
         }
         .cornerRadius(20)
         .onAppear(){
-            db.collection("List").getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else if entityNameList.isEmpty {
-                    var i = 0
-                    for document in querySnapshot!.documents {
-                        entityNameList.append(document.documentID)
-                        i+=1
-                    }
+            Firestore.firestore().collection("List").addSnapshotListener{ (querySnapshot, error) in
+                entityNameList.removeAll()
+                for document in querySnapshot!.documents{
+                    entityNameList.append(document.documentID)
                 }
             }
         }

@@ -19,9 +19,7 @@ extension View {
 #endif
 
 public var entityNameList = [String]()
-public var buildingNameList = [String]()
-public var buildingLat = [Double]()
-public var buildingLng = [Double]()
+public var buildingList = [Building]()
 
 @main
 struct WhereIsItApp: App {

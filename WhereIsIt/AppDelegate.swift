@@ -32,8 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-        Firestore.firestore().collection("List").addSnapshotsInSyncListener { documentSnapshot, error in
-            print("something has been added")
+        Firestore.firestore().collection("List").addSnapshotListener{ (querySnapshot, error) in
+            entityNameList.removeAll()
+            for document in querySnapshot!.documents{
+                entityNameList.append(document.documentID)
+            }
         }
         return true
     }

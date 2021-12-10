@@ -171,12 +171,17 @@ struct AddItemPage: View {
                 entityNameList.forEach({ item in
                     allItems.append(item)
                 })
-                //allItems.append("Other")
             }
             if !buildingList.isEmpty{
                 buildingList.forEach({ item in
                     allBuildings.append(item.name)
                 })
+            }
+            Firestore.firestore().collection("List").addSnapshotListener{ (querySnapshot, error) in
+                allItems.removeAll()
+                for document in entityNameList{
+                    allItems.append(document)
+                }
             }
         }
     }

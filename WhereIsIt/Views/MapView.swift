@@ -41,18 +41,15 @@ struct MapView: UIViewRepresentable {
                 for document in querySnapshot!.documents {
                     //document.documentID = building  name
                     print("\(document.documentID) => \(document.data())")
-                    var lat = 0.0
-                    var long = 0.0
                     for building in buildingList {
                         if building.name == document.documentID {
-                            lat = building.lat
-                            long = building.lng
+                            let annotation = MKPointAnnotation()
+                            annotation.coordinate = building.coordinate
+                            annotation.title = building.name
+                            map.addAnnotation(annotation)
                             break
                         }
                     }
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                    map.addAnnotation(annotation)
                 }
             }
         }

@@ -32,6 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
+        Firestore.firestore().collection("List").addSnapshotsInSyncListener { documentSnapshot, error in
+            print("something has been added")
+        }
         return true
     }
 }

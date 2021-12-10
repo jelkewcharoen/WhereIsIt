@@ -24,6 +24,8 @@ struct ChosenEntityPage: View {
                     HeaderView()
                     Text(selectedEntity.uppercased())
                     Spacer().frame(height: 25)
+//                    MapView2(selectedEntity: $selectedEntity)
+//                        .frame(width: 350, height: 450, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     MapView(selectedEntity: $selectedEntity)
                         .frame(width: 350, height: 450, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     Spacer().frame(height: 25)

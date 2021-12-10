@@ -10,6 +10,7 @@ import UIKit
 import SwiftUI
 import MapKit
 import FirebaseFirestore
+import CoreLocation
 
 struct MapView: UIViewRepresentable {
     @Binding var selectedEntity: String
@@ -17,6 +18,7 @@ struct MapView: UIViewRepresentable {
     typealias UIViewType = UIView
     
     func makeUIView(context: Context) -> UIView {
+        
         let view = UIView()
         
         let coordinate = CLLocationCoordinate2D(latitude: 33.7756, longitude: -84.3963)

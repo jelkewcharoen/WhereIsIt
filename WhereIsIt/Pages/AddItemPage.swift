@@ -108,21 +108,7 @@ struct AddItemPage: View {
                                             //has to create a field to add the item name
                                             //db.collection("List").document(selectedItem!).setData(["Exist" : true])
                                         }
-                                        let docBuilding = db.collection(selectedItem!).document(selectedBuilding!)
-                                        docBuilding.getDocument{(document, err) in
-                                            
-                                            if let document = document, !document.exists {
-                                                print("add new building")
-                                                db.collection(selectedItem!).document(selectedBuilding!).setData(["hasItem":true]) {
-                                                err in
-                                                if let err = err {
-                                                        print("Error writing document: \(err)")
-                                                    } else {
-                                                        print("Document successfully written!")
-                                                    }
-                                                }
-                                            }
-                                        }
+                                        db.collection(selectedItem!).document(selectedBuilding!).setData(["hasItem" : true], merge: true)
                                         db.collection(selectedItem!).document(selectedBuilding!).collection(floor).addDocument(data: [
                                             "Description":description]){ err in
                                                 if let err = err {

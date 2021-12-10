@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct Response: Codable {
     var children: Children
@@ -20,6 +21,9 @@ public struct Building: Codable, Identifiable {
     var name: String
     var lat: Double
     var lng: Double
+    var coordinate: CLLocationCoordinate2D {
+            CLLocationCoordinate2D(latitude: lat, longitude: lng)
+        }
 }
 
 class Api {

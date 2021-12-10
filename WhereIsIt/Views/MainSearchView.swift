@@ -71,7 +71,6 @@ struct MainSearchView: View {
                 }, id: \.self) { name in
                     HStack{
                         Button(name) {
-                            print("Button tapped!")
                             self.chosenEntity = name
                             self.showingEntityPage.toggle()
                         }.sheet(isPresented: $showingEntityPage){

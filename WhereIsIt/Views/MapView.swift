@@ -34,10 +34,17 @@ struct MapView: UIViewRepresentable {
                 for document in querySnapshot!.documents {
                     //document.documentID = building  name
                     print("\(document.documentID) => \(document.data())")
-                    let latitude  = document.data()["Latitude"] as? Double
-                    let longitude = document.data()["Longitude"] as? Double
+                    var lat = 0.0
+                    var long = 0.0
+                    for building in buildingList {
+                        if building.name == document.documentID {
+                            lat = building.lat
+                            long = building.lng
+                            break
+                        }
+                    }
                     let annotation = MKPointAnnotation()
-                    annotation.coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+                    annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
                     map.addAnnotation(annotation)
                 }
             }

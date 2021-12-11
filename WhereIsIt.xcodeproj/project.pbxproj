@@ -22,6 +22,7 @@
 		26FA992A2711B4DD00A70AD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA99292711B4DD00A70AD1 /* AppDelegate.swift */; };
 		26FA992E2711B79300A70AD1 /* AddItemPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA992D2711B79300A70AD1 /* AddItemPage.swift */; };
 		26FA99322711C27D00A70AD1 /* ButtonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA99312711C27D00A70AD1 /* ButtonFunction.swift */; };
+		495D68A6276477EE00C2A610 /* ItemLocationDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495D68A5276477EE00C2A610 /* ItemLocationDescriptionView.swift */; };
 		49A2B25827546824004EBAD8 /* BuildingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A2B25727546824004EBAD8 /* BuildingData.swift */; };
 		E04A03DF272A541D009587E7 /* AddSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A03DE272A541D009587E7 /* AddSearchView.swift */; };
 		E0FB18F3271D284100B4F82C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0FB18F2271D284100B4F82C /* GoogleService-Info.plist */; };
@@ -46,6 +47,7 @@
 		26FA99292711B4DD00A70AD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26FA992D2711B79300A70AD1 /* AddItemPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemPage.swift; sourceTree = "<group>"; };
 		26FA99312711C27D00A70AD1 /* ButtonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFunction.swift; sourceTree = "<group>"; };
+		495D68A5276477EE00C2A610 /* ItemLocationDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLocationDescriptionView.swift; sourceTree = "<group>"; };
 		49A2B25727546824004EBAD8 /* BuildingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingData.swift; sourceTree = "<group>"; };
 		63545626D768039A5A9E67BF /* Pods_WhereIsIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhereIsIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A39D13E5B9A153C29D45EA8C /* Pods-WhereIsIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereIsIt.debug.xcconfig"; path = "Target Support Files/Pods-WhereIsIt/Pods-WhereIsIt.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				26FA98FD27101C0600A70AD1 /* BackgroundGradientView.swift */,
 				E0FB18F6271E24CD00B4F82C /* DropDownMenuView.swift */,
 				E04A03DE272A541D009587E7 /* AddSearchView.swift */,
+				495D68A5276477EE00C2A610 /* ItemLocationDescriptionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				268833622712EB8600B405CA /* MapView.swift in Sources */,
 				26FA98FE27101C0600A70AD1 /* BackgroundGradientView.swift in Sources */,
 				26FA992E2711B79300A70AD1 /* AddItemPage.swift in Sources */,
+				495D68A6276477EE00C2A610 /* ItemLocationDescriptionView.swift in Sources */,
 				26FA98F727100AD400A70AD1 /* MainSearchView.swift in Sources */,
 				2688336027125D7E00B405CA /* ChosenEntityPage.swift in Sources */,
 				E04A03DF272A541D009587E7 /* AddSearchView.swift in Sources */,

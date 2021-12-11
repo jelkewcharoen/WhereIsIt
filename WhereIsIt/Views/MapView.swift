@@ -16,6 +16,11 @@ public var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 
 
 struct MapView: UIViewRepresentable {
     @Binding var selectedEntity: String
+    @Binding var selectedBuilding: String?
+    @Binding var entityLocationDescription: String?  // THIS IS USED TO UPDATE DESCRIPTION
+    @Binding var showingBuildingDescription: Bool
+    
+    
     @StateObject private var viewModel = MapViewModel()
     var db = Firestore.firestore()
     typealias UIViewType = UIView
@@ -28,12 +33,14 @@ struct MapView: UIViewRepresentable {
             self.parent = parent
         }
         
+        // Function that creates the MKMarkerAnnotationView for each MKAnnotation
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
             let identifer  = "Placemark"
             
             var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifer)
             
             if annotation is MKUserLocation {
+                // Used to block conversion of userLocation to a MKMarkerAnnotationView
                 return nil
             } else {
                 if annotationView == nil {
@@ -45,6 +52,14 @@ struct MapView: UIViewRepresentable {
                 }
                 return annotationView
             }
+        }
+        
+        // Adds Functionality to the (i) button on each MKMarkerAnnotationView
+        func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+            guard let placemark = view.annotation as? MKPointAnnotation else { return }
+            parent.selectedBuilding = placemark.title!
+            parent.entityLocationDescription = "LOCATION DESCRIPTION - Passed in from MapView.swift"
+            parent.showingBuildingDescription = true
         }
     }
     
@@ -75,9 +90,10 @@ struct MapView: UIViewRepresentable {
             } else {
                 for document in querySnapshot!.documents {
                     //document.documentID = building  name
-                    //print("\(document.documentID) => \(document.data())")
+                    //print("\(document.documentID) => \(document.self)")
                     for building in buildingList {
                         if building.name == document.documentID {
+                            
                             let annotation = MKPointAnnotation()
                             annotation.coordinate = building.coordinate
                             annotation.title = building.name
@@ -157,8 +173,22 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
 
 
 
+// Helper to show an example of MKPointAnnotation
+extension MKPointAnnotation {
+    static var example: MKPointAnnotation {
+        let annotation = MKPointAnnotation()
+        annotation.title = "Example Building"
+        annotation.subtitle = "This is an example"
+        annotation.coordinate = CLLocationCoordinate2D(latitude: 33.7756, longitude: -84.3963)
+        return annotation
+    }
+}
+
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(selectedEntity: .constant("testing"))
+        MapView(selectedEntity: .constant("testing"),
+                selectedBuilding: .constant(MKPointAnnotation.example.title!),
+                entityLocationDescription: .constant("Building Description"),
+                showingBuildingDescription: .constant(false))
     }
 }

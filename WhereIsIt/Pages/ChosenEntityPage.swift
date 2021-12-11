@@ -13,6 +13,10 @@ struct ChosenEntityPage: View {
     @Binding var isPresented: Bool
     @Binding var selectedEntity: String
     
+    @State private var selectedBuilding: String?
+    @State private var entityLocationDescription: String?
+    
+    @State var showingItemLocationDescriptionView = false
     @State var text: String = ""
     
     var body: some View {
@@ -26,7 +30,10 @@ struct ChosenEntityPage: View {
                     Spacer().frame(height: 25)
 //                    MapView2(selectedEntity: $selectedEntity)
 //                        .frame(width: 350, height: 450, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    MapView(selectedEntity: $selectedEntity)
+                    MapView(selectedEntity: $selectedEntity,
+                            selectedBuilding: $selectedBuilding,
+                            entityLocationDescription: $entityLocationDescription,
+                            showingBuildingDescription: $showingItemLocationDescriptionView)
                         .frame(width: 350, height: 450, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     Spacer().frame(height: 25)
                     Button("Close") {
@@ -37,6 +44,11 @@ struct ChosenEntityPage: View {
                     .background(Color("Navy Blue"))
                     .cornerRadius(10)
                     Spacer()
+                }.sheet(isPresented: $showingItemLocationDescriptionView){
+                    ItemLocationDescriptionView(selectedEntity: $selectedEntity,
+                                                selectedBuilding: $selectedBuilding,
+                                                entityLocationDescription: $entityLocationDescription,
+                                                isPresented: $showingItemLocationDescriptionView)
                 }
             }
             .navigationBarHidden(true)

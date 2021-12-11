@@ -12,6 +12,8 @@ import FirebaseFirestore
 
 struct HomePage: View {
     
+    @StateObject private var keyboardHandler = KeyboardHandler()
+    
     @State var text: String = ""
     @State private var showingEntityPage = false
     @State private var showingDeveloperPage = false
@@ -23,7 +25,8 @@ struct HomePage: View {
                 VStack{
                     Spacer().frame(height: 50)
                     HeaderView()
-                    MainSearchView().padding(.horizontal)
+                    MainSearchView()
+                        .padding(.horizontal)
                     Spacer()
                     Text("Found a new item? Add it to our database!").foregroundColor(.white)
                     NavigationLink(
@@ -48,6 +51,7 @@ struct HomePage: View {
                      */
                     Spacer()
                 }
+                .padding(.bottom, keyboardHandler.keyboardHeight)
             }
             .navigationBarHidden(true)
             .navigationBarTitle(Text("Home"))

@@ -22,6 +22,7 @@
 		26FA992A2711B4DD00A70AD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA99292711B4DD00A70AD1 /* AppDelegate.swift */; };
 		26FA992E2711B79300A70AD1 /* AddItemPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA992D2711B79300A70AD1 /* AddItemPage.swift */; };
 		495D68A6276477EE00C2A610 /* ItemLocationDescriptionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495D68A5276477EE00C2A610 /* ItemLocationDescriptionPage.swift */; };
+		499395392764A4A60081B537 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499395382764A4A60081B537 /* KeyboardHandler.swift */; };
 		49A2B25827546824004EBAD8 /* BuildingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A2B25727546824004EBAD8 /* BuildingData.swift */; };
 		E04A03DF272A541D009587E7 /* AddSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A03DE272A541D009587E7 /* AddSearchView.swift */; };
 		E0FB18F3271D284100B4F82C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0FB18F2271D284100B4F82C /* GoogleService-Info.plist */; };
@@ -46,6 +47,7 @@
 		26FA99292711B4DD00A70AD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26FA992D2711B79300A70AD1 /* AddItemPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemPage.swift; sourceTree = "<group>"; };
 		495D68A5276477EE00C2A610 /* ItemLocationDescriptionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLocationDescriptionPage.swift; sourceTree = "<group>"; };
+		499395382764A4A60081B537 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		49A2B25727546824004EBAD8 /* BuildingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingData.swift; sourceTree = "<group>"; };
 		63545626D768039A5A9E67BF /* Pods_WhereIsIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhereIsIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A39D13E5B9A153C29D45EA8C /* Pods-WhereIsIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereIsIt.debug.xcconfig"; path = "Target Support Files/Pods-WhereIsIt/Pods-WhereIsIt.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,9 +89,9 @@
 		26FA98E1270FD43E00A70AD1 /* WhereIsIt */ = {
 			isa = PBXGroup;
 			children = (
-				E0C8A284271E44DF00136BD4 /* Controllers */,
 				26FA99292711B4DD00A70AD1 /* AppDelegate.swift */,
 				26FA98E2270FD43E00A70AD1 /* WhereIsItApp.swift */,
+				499395382764A4A60081B537 /* KeyboardHandler.swift */,
 				26FA99012711A10B00A70AD1 /* Pages */,
 				26FA98F827100D0B00A70AD1 /* Views */,
 				49A2B25627546806004EBAD8 /* Api */,
@@ -158,13 +160,6 @@
 				63545626D768039A5A9E67BF /* Pods_WhereIsIt.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E0C8A284271E44DF00136BD4 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +291,7 @@
 				26FA98FC2710161100A70AD1 /* LoginPage.swift in Sources */,
 				26FA98F3270FFD0C00A70AD1 /* CustomizedSearchBar.swift in Sources */,
 				26FA992A2711B4DD00A70AD1 /* AppDelegate.swift in Sources */,
+				499395392764A4A60081B537 /* KeyboardHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

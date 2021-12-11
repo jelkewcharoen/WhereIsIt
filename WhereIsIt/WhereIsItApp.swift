@@ -6,17 +6,8 @@
 //
 
 import SwiftUI
-import UIKit
 import Firebase
 import FirebaseFirestore
-
-#if canImport(UIKit)
-extension View {
-    func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
-#endif
 
 public var entityNameList = [String]()
 public var buildingList = [Building]()

@@ -8,10 +8,13 @@
 import SwiftUI
 import FirebaseFirestore
 struct AddItemPage: View {
+    
+    @StateObject private var keyboardHandler = KeyboardHandler()
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var allItems = [String]()
     @State var allBuildings = [String]()
-    //@State var listBuildings = [Building]()
+    
     //information variables
     @State var floor: String = ""
     @State var description: String = ""
@@ -28,7 +31,7 @@ struct AddItemPage: View {
     
     var db = Firestore.firestore()
     init() {
-            UITextView.appearance().backgroundColor = .clear
+        UITextView.appearance().backgroundColor = .clear
     }
     var body: some View {
         NavigationView {
@@ -39,7 +42,6 @@ struct AddItemPage: View {
                     HeaderView()
                     ScrollView {
                         Group{
-                            
                             HStack{
                                 Text("Item:")
                                     .font(.system(size: 20, weight: .light, design: .rounded))
@@ -99,7 +101,7 @@ struct AddItemPage: View {
                         }
                         Spacer()
                             .frame(height: 30.0)
-
+                        
                         Text(redLabel)
                             .foregroundColor(Color("New Horizon"))
                         Group{ //buttons
@@ -109,7 +111,7 @@ struct AddItemPage: View {
                                     //all fields must be filled out
                                     if((selectedItem != nil || newItem != "") && selectedBuilding != nil && !floor.isEmpty && !description.isEmpty){
                                         //add item to the database
-            
+                                        
                                         if (selectedItem == nil){
                                             //add new category
                                             selectedItem = newItem
@@ -119,11 +121,11 @@ struct AddItemPage: View {
                                         db.collection(selectedItem!).document(selectedBuilding!).collection(floor).addDocument(data: [
                                             "Description":description]){ err in
                                                 if let err = err {
-                                                        print("Error adding document: \(err)")
-                                                    } else {
-                                                        print("Document added")
-                                                        self.redLabel = "Added item"
-                                                    }
+                                                    print("Error adding document: \(err)")
+                                                } else {
+                                                    print("Document added")
+                                                    self.redLabel = "Added item"
+                                                }
                                             }
                                         self.selectedItem = "Item"
                                         self.floor = ""
@@ -131,8 +133,8 @@ struct AddItemPage: View {
                                     }
                                     //Floor must be int between 0 and 50
                                     else if ( Int(floor) == nil || Int(floor)! < 0 || Int(floor)! > 50) {
-                                            self.redLabel = "Please input Integer between 0 and 50"
-                                        }
+                                        self.redLabel = "Please input Integer between 0 and 50"
+                                    }
                                     else {
                                         self.redLabel = "Please input all information"
                                     }
@@ -158,7 +160,8 @@ struct AddItemPage: View {
                         }
                     }
                     Spacer()
-                    }
+                }
+                .padding(.bottom, keyboardHandler.keyboardHeight)
             }
             .edgesIgnoringSafeArea([.top, .bottom])
             .onTapGesture {

@@ -19,8 +19,42 @@ struct MapView: UIViewRepresentable {
     @StateObject private var viewModel = MapViewModel()
     var db = Firestore.firestore()
     typealias UIViewType = UIView
+    
+    // Coordinator class responsible for notifying when changes occur to MapView
+    class Coordinator: NSObject, MKMapViewDelegate {
+        var parent:MapView
+        
+        init(_ parent: MapView) {
+            self.parent = parent
+        }
+        
+        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            let identifer  = "Placemark"
+            
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifer)
+            
+            if annotation is MKUserLocation {
+                return nil
+            } else {
+                if annotationView == nil {
+                    annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifer)
+                    annotationView?.canShowCallout = true
+                    annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+                } else {
+                    annotationView?.annotation = annotation
+                }
+                return annotationView
+            }
+        }
+    }
+    
+    // Helper to connect MapView to it's Delegate
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
 
     
+    // Creates the map and Adds all pins to it via database query
     func makeUIView(context: Context) -> UIView {
         
         viewModel.checkIfLocationServiceIsEnabled()
@@ -28,19 +62,20 @@ struct MapView: UIViewRepresentable {
         let view = UIView()
         
         let map = MKMapView()
+        map.delegate = context.coordinator
         map.setRegion(region, animated: true)
         map.showsUserLocation = true
         
         view.addSubview(map)
         
-        //read from database
+        // DATABASE QUERY
         db.collection(selectedEntity).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
                     //document.documentID = building  name
-                    print("\(document.documentID) => \(document.data())")
+                    //print("\(document.documentID) => \(document.data())")
                     for building in buildingList {
                         if building.name == document.documentID {
                             let annotation = MKPointAnnotation()
@@ -65,18 +100,14 @@ struct MapView: UIViewRepresentable {
         return view
     }
     
+    
     func updateUIView(_ uiView: UIView, context: Context) {
         //do nothing
     }
 }
 
-struct MapView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        MapView(selectedEntity: .constant("testing"))
-    }
-}
 
+// LocationManager handles location permission services
 final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     var locationManager: CLLocationManager?
     
@@ -91,6 +122,7 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
         }
     }
     
+    
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationAuthorization()
     }
@@ -98,6 +130,7 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     }
     
+    // Function that handles various location permissions
     private func checkLocationAuthorization() {
         guard let locationManager = locationManager else { return }
         
@@ -117,5 +150,15 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
         @unknown default:
             break;
         }
+    }
+}
+
+
+
+
+
+struct MapView_Previews: PreviewProvider {
+    static var previews: some View {
+        MapView(selectedEntity: .constant("testing"))
     }
 }

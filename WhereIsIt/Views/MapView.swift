@@ -56,8 +56,9 @@ struct MapView: UIViewRepresentable {
         
         // Adds Functionality to the (i) button on each MKMarkerAnnotationView
         func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-            guard let placemark = view.annotation as? MKPointAnnotation else { return }
-            parent.selectedBuilding = placemark.title!
+            guard let annotation = view.annotation as? MKPointAnnotation else { return }
+            parent.selectedBuilding = annotation.title!
+            // parent.entityLocationDescription = annotation.subtitle!
             parent.entityLocationDescription = "LOCATION DESCRIPTION - Passed in from MapView.swift"
             parent.showingBuildingDescription = true
         }
@@ -93,10 +94,10 @@ struct MapView: UIViewRepresentable {
                     //print("\(document.documentID) => \(document.self)")
                     for building in buildingList {
                         if building.name == document.documentID {
-                            
                             let annotation = MKPointAnnotation()
                             annotation.coordinate = building.coordinate
                             annotation.title = building.name
+                            // annotation.subtitle = PUT DESCRIPTION HERE
                             map.addAnnotation(annotation)
                             break
                         }

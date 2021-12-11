@@ -17,12 +17,16 @@ struct ItemLocationDescriptionView: View {
         ZStack{
             VStack{
                 Spacer()
-                Text("\(selectedEntity) at \(selectedBuilding!)")
+                Text("\(selectedEntity)s at \(selectedBuilding!)")
                 Spacer()
                 Text("\(entityLocationDescription!)")
                 Button("Close") {
                     self.isPresented = false;
                 }
+                .foregroundColor(.white)
+                .padding()
+                .background(Color("Navy Blue"))
+                .cornerRadius(10)
                 Spacer()
             }
         }

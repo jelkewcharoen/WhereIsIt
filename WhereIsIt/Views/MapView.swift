@@ -2,7 +2,7 @@
 //  MapView.swift
 //  WhereIsIt
 //
-//  Created by Andrew Lukman on 10/10/21.
+//  Created by Green T
 //
 
 import Foundation

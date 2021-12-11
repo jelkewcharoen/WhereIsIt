@@ -2,7 +2,7 @@
 //  AddSearchView.swift
 //  WhereIsIt
 //
-//  Created by Jel Kewcharoen on 10/27/21.
+//  Created by Green T
 //
 
 import SwiftUI

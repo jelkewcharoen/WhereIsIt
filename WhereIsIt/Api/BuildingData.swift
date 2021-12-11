@@ -2,7 +2,7 @@
 //  BuildingData.swift
 //  WhereIsIt
 //
-//  Created by Andrew Widjaja on 11/28/21.
+//  Created by Green T
 //
 
 import SwiftUI

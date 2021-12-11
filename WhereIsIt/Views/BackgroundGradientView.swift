@@ -2,7 +2,7 @@
 //  BackgroundGradientView.swift
 //  WhereIsIt
 //
-//  Created by Andrew Lukman on 10/8/21.
+//  Created by Green T
 //
 
 import SwiftUI

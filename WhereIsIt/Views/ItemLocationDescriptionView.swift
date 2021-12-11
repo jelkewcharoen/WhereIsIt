@@ -2,7 +2,7 @@
 //  ItemLocationDescriptionView.swift
 //  WhereIsIt
 //
-//  Created by Andrew Widjaja on 12/11/21.
+//  Created by Green T
 //
 
 import SwiftUI

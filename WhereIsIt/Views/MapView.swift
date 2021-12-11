@@ -58,8 +58,9 @@ struct MapView: UIViewRepresentable {
         func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
             guard let annotation = view.annotation as? MKPointAnnotation else { return }
             parent.selectedBuilding = annotation.title!
-            // parent.entityLocationDescription = annotation.subtitle!
-            parent.entityLocationDescription = "LOCATION DESCRIPTION - Passed in from MapView.swift"
+            print("subtitle = "+annotation.subtitle!)
+            parent.entityLocationDescription = annotation.subtitle!
+            //parent.entityLocationDescription = "LOCATION DESCRIPTION - Passed in from MapView.swift"
             parent.showingBuildingDescription = true
         }
     }
@@ -72,7 +73,7 @@ struct MapView: UIViewRepresentable {
     
     // Creates the map and Adds all pins to it via database query
     func makeUIView(context: Context) -> UIView {
-        
+        var descriptionString: String = ""
         viewModel.checkIfLocationServiceIsEnabled()
         
         let view = UIView()
@@ -97,7 +98,17 @@ struct MapView: UIViewRepresentable {
                             let annotation = MKPointAnnotation()
                             annotation.coordinate = building.coordinate
                             annotation.title = building.name
-                            // annotation.subtitle = PUT DESCRIPTION HERE
+                            db.collection(selectedEntity).document(document.documentID).collection("1").getDocuments() { (querySnapshot, err) in
+                                if let err = err {
+                                    print("Error getting documents: \(err)")
+                                } else {
+                                    for item in querySnapshot!.documents {
+                                        descriptionString = descriptionString + "\(item.data().values.first!)\n"
+                                        print("description = "+descriptionString)
+                                    }
+                                    annotation.subtitle = descriptionString
+                                }
+                            }
                             map.addAnnotation(annotation)
                             break
                         }

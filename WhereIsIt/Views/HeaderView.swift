@@ -19,8 +19,6 @@ struct HeaderView: View {
                 .font(.system(size: 40, weight: .light, design: .rounded))
                 .scaledToFit()
                 .foregroundColor(.white)
-                
-            //Spacer()
         }
     }
 }

@@ -12,7 +12,6 @@ struct BackgroundGradientView: View {
         LinearGradient(gradient: Gradient(colors: [Color("Navy Blue"), Color("Main Gradient 2"), Color("Navy Blue")]),
                        startPoint: .topLeading,
                        endPoint: .bottomTrailing)
-            //.ignoresSafeArea(.all)
     }
 }
 

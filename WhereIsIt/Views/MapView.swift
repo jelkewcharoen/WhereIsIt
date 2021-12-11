@@ -58,7 +58,6 @@ struct MapView: UIViewRepresentable {
         func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
             guard let annotation = view.annotation as? MKPointAnnotation else { return }
             parent.selectedBuilding = annotation.title!
-            print("subtitle = "+annotation.subtitle!)
             parent.entityLocationDescription = annotation.subtitle!
             //parent.entityLocationDescription = "LOCATION DESCRIPTION - Passed in from MapView.swift"
             parent.showingBuildingDescription = true
@@ -91,8 +90,6 @@ struct MapView: UIViewRepresentable {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    //document.documentID = building  name
-                    //print("\(document.documentID) => \(document.self)")
                     for building in buildingList {
                         if building.name == document.documentID {
                             let annotation = MKPointAnnotation()
@@ -104,7 +101,6 @@ struct MapView: UIViewRepresentable {
                                 } else {
                                     for item in querySnapshot!.documents {
                                         descriptionString = descriptionString + "\(item.data().values.first!)\n"
-                                        print("description = "+descriptionString)
                                     }
                                     annotation.subtitle = descriptionString
                                 }
@@ -168,10 +164,8 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
             locationManager.requestWhenInUseAuthorization()
         case .restricted:
             locationManager.requestWhenInUseAuthorization()
-//            print("Your location is restricted likely due to parental controls.")
         case .denied:
             locationManager.requestWhenInUseAuthorization()
-//            print("Location permission is denied. Go into settings to change it.")
         case .authorizedAlways, .authorizedWhenInUse:
             region = MKCoordinateRegion(center: locationManager.location!.coordinate,
                                         span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))

@@ -112,7 +112,6 @@ struct AddItemPage: View {
             
                                         if (selectedItem == nil){
                                             //add new category
-                                            print(newItem)
                                             selectedItem = newItem
                                             db.collection("List").document(selectedItem!).setData(["Exist" : true])
                                         }

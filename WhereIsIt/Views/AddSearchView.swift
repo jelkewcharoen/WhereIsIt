@@ -13,7 +13,6 @@ struct AddSearchView: View {
     
     @State var text: String = ""
     @State private var showingEntityPage = false
-   // @State private var chosenEntity: String?
     @State var color: UIColor? = UIColor(Color("Tech Gold"))
     
     var body: some View {
@@ -50,9 +49,7 @@ struct AddSearchView: View {
 struct AddSearchView_Previews: PreviewProvider {
     @State static var items = ["1","2","3"]
     static var previews: some View {
-        //AddSearchView()
-        //AddSearchView(allItems: $items)
-        Text("hello")
+        Text("No preview implemented")
     }
     
 }

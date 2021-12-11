@@ -162,6 +162,9 @@ struct AddItemPage: View {
                     }
             }
             .edgesIgnoringSafeArea([.top, .bottom])
+            .onTapGesture {
+                self.hideKeyboard()
+            }
         }
         .navigationBarTitle(Text(""), displayMode: .inline)
         .statusBar(hidden: true)

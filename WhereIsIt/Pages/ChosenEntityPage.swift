@@ -43,7 +43,7 @@ struct ChosenEntityPage: View {
                     .cornerRadius(10)
                     Spacer()
                 }.sheet(isPresented: $showingItemLocationDescriptionView){
-                    ItemLocationDescriptionView(selectedEntity: $selectedEntity,
+                    ItemLocationDescriptionPage(selectedEntity: $selectedEntity,
                                                 selectedBuilding: $selectedBuilding,
                                                 entityLocationDescription: $entityLocationDescription,
                                                 isPresented: $showingItemLocationDescriptionView)

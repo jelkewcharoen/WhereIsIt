@@ -1,5 +1,5 @@
 //
-//  ItemLocationDescriptionView.swift
+//  ItemLocationDescriptionPage.swift
 //  WhereIsIt
 //
 //  Created by Green T
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ItemLocationDescriptionView: View {
+struct ItemLocationDescriptionPage: View {
     @Binding var selectedEntity: String
     @Binding var selectedBuilding: String?
     @Binding var entityLocationDescription: String?
@@ -36,7 +36,7 @@ struct ItemLocationDescriptionView: View {
 
 struct ItemLocationDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemLocationDescriptionView(selectedEntity: .constant("selectedEntity"),
+        ItemLocationDescriptionPage(selectedEntity: .constant("selectedEntity"),
                                     selectedBuilding: .constant("Building Name"),
                                     entityLocationDescription: .constant("Building Name"),
                                     isPresented: .constant(true))
